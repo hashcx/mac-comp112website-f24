@@ -1,0 +1,25 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "COMP/STAT 112: Introduction to Data Science"
+  # navbar:
+  #   left:
+  #     - href: index.qmd
+  #       text: Home
+  #     - about.qmd
+  sidebar: 
+    contents: auto
+
+format:
+  html:
+    code-copy: true
+    theme: cosmo
+    css: sty/styles.css
+    toc: true
+
+execute:
+  cache: true
+  freeze: auto
+

@@ -1,0 +1,59 @@
+{
+  "src/01-RStudio_Intro.qmd": {
+    "01-RStudio_Intro.html": "eaf55807"
+  },
+  "src/02-Intro_Data_Viz.qmd": {
+    "02-Intro_Data_Viz.html": "d58854b0"
+  },
+  "src/03-Effective_Viz.qmd": {
+    "03-Effective_Viz.html": "49506d88"
+  },
+  "src/04-Bivariate_Viz.qmd": {
+    "04-Bivariate_Viz.html": "ecf13d47"
+  },
+  "src/05-Multivariate_Viz.qmd": {
+    "05-Multivariate_Viz.html": "5d68deac"
+  },
+  "src/07-Six_Main_Verbs.qmd": {
+    "07-Six_Main_Verbs.html": "b12e5f7e"
+  },
+  "src/08-Reshaping_Data.qmd": {
+    "08-Reshaping_Data.html": "9bf6dbd2"
+  },
+  "src/09-Join.qmd": {
+    "09-Join.html": "419ad469"
+  },
+  "src/10-Factors.qmd": {
+    "10-Factors.html": "e7cad499"
+  },
+  "src/11-Mini_Project.qmd": {
+    "11-Mini_Project.html": "51efbadb"
+  },
+  "src/12-Data_Import.qmd": {
+    "12-Data_Import.html": "cd3d2c6a"
+  },
+  "src/13-EDA.qmd": {
+    "13-EDA.html": "05e8c6f1"
+  },
+  "src/14-Regex.qmd": {
+    "14-Regex.html": "17ec296b"
+  },
+  "src/15-Data_Scraping.qmd": {
+    "15-Data_Scraping.html": "7ab1b4f5"
+  },
+  "src/16-API.qmd": {
+    "16-API.html": "60fe9795"
+  },
+  "src/17-SQL.qmd": {
+    "17-SQL.html": "54a58638"
+  },
+  "src/18-Text_Analysis.qmd": {
+    "18-Text_Analysis.html": "3166b527"
+  },
+  "src/19-Adv_Viz.qmd": {
+    "19-Adv_Viz.html": "706b3fb2"
+  },
+  "src/21-Prez_Tools.qmd": {
+    "21-Prez_Tools.html": "4803d430"
+  }
+}
