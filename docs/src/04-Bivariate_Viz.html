@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.553">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>COMP/STAT 112: Introduction to Data Science</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../src/01-RStudio_Intro.html">Src</a></li><li class="breadcrumb-item"><a href="../src/04-Bivariate_Viz.html">options(htmltools.dir.version = FALSE)</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">COMP/STAT 112: Introduction to Data Science</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Src</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/01-RStudio_Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P1: Intro to R, RStudio, and R Markdown</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/02-Intro_Data_Viz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">(PART) Visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/03-Effective_Viz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Effective Visualizations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/04-Bivariate_Viz.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">options(htmltools.dir.version = FALSE)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/05-Multivariate_Viz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Multivariate Visualizations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/07-Six_Main_Verbs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">(PART) Data Wrangling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/08-Reshaping_Data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reshaping Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/09-Join.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Joining Two Data Frames</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/10-Factors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Categorical Variables as Factors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/11-Mini_Project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mini-Project</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/12-Data_Import.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">(PART) Data Acquisition &amp; Cleaning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/13-EDA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exploratory Data Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/14-Regex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regular Expressions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/15-Data_Scraping.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">(PART) Additional Topics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/16-API.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Public Web APIs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/17-SQL.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SQL</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/18-Text_Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Text Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/19-Adv_Viz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Advanced Visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/21-Prez_Tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentation Tools</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#bivariate-visualizations" id="toc-bivariate-visualizations" class="nav-link active" data-scroll-target="#bivariate-visualizations">Bivariate Visualizations</a>
+  <ul class="collapse">
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning Goals</a></li>
+  <li><a href="#alterative-text-for-visualizations" id="toc-alterative-text-for-visualizations" class="nav-link" data-scroll-target="#alterative-text-for-visualizations">Alterative Text for Visualizations</a></li>
+  <li><a href="#bivariate-visualizations-1" id="toc-bivariate-visualizations-1" class="nav-link" data-scroll-target="#bivariate-visualizations-1">Bivariate Visualizations</a>
+  <ul class="collapse">
+  <li><a href="#getting-to-know-the-dataset" id="toc-getting-to-know-the-dataset" class="nav-link" data-scroll-target="#getting-to-know-the-dataset">Getting to know the dataset</a></li>
+  <li><a href="#background-on-visualizing-relationships" id="toc-background-on-visualizing-relationships" class="nav-link" data-scroll-target="#background-on-visualizing-relationships">Background on visualizing relationships</a></li>
+  <li><a href="#visualizing-quantitiative-vs-quantitative-relationships" id="toc-visualizing-quantitiative-vs-quantitative-relationships" class="nav-link" data-scroll-target="#visualizing-quantitiative-vs-quantitative-relationships">Visualizing quantitiative vs quantitative relationships</a></li>
+  <li><a href="#visualizing-quantitative-vs.-categorical-relationships" id="toc-visualizing-quantitative-vs.-categorical-relationships" class="nav-link" data-scroll-target="#visualizing-quantitative-vs.-categorical-relationships">Visualizing quantitative vs.&nbsp;categorical relationships</a></li>
+  <li><a href="#visualizing-categorical-vs-categorical-relationships" id="toc-visualizing-categorical-vs-categorical-relationships" class="nav-link" data-scroll-target="#visualizing-categorical-vs-categorical-relationships">Visualizing categorical vs categorical relationships</a></li>
+  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
+  </ul></li>
+  <li><a href="#appendix-r-functions" id="toc-appendix-r-functions" class="nav-link" data-scroll-target="#appendix-r-functions">Appendix: R Functions</a>
+  <ul class="collapse">
+  <li><a href="#data-wrangling-r-functions" id="toc-data-wrangling-r-functions" class="nav-link" data-scroll-target="#data-wrangling-r-functions">Data Wrangling R functions</a></li>
+  <li><a href="#ggplot2-foundation-functions" id="toc-ggplot2-foundation-functions" class="nav-link" data-scroll-target="#ggplot2-foundation-functions">ggplot2 foundation functions</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="bivariate-visualizations" class="level1">
+<h1>Bivariate Visualizations</h1>
+<section id="learning-goals" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="learning-goals">Learning Goals</h2>
+<ul>
+<li>Identify appropriate types of bivariate visualizations, depending on the type of variables (categorical, quantitative)</li>
+<li>Create basic bivariate visualizations based on real data</li>
+</ul>
+<p>You can download a template .Rmd of this activity <a href="template_rmd/04-Bivariate_Viz_Assign.Rmd">here</a>. Put the file in the existing <code>Assignment_03</code> folder within your <code>COMP_STAT_112</code> folder.</p>
+</section>
+<section id="alterative-text-for-visualizations" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="alterative-text-for-visualizations">Alterative Text for Visualizations</h2>
+<p>You should write alt text for every visualization to create.</p>
+<p>From the last activity: Alt text should concisely articulate (1) what your visualization is (e.g.&nbsp;a bar chart showing which the harvest rate of cucumbers), (2) a one sentence description of the what you think is the most important takeaway your visualization is showing, and (3) a link to your data source if it’s not already in the caption (check out this <a href="https://medium.com/nightingale/writing-alt-text-for-data-visualization-2a218ef43f81">great resource on writing alt text for data visualizations</a>).</p>
+<p>To add the alt text to your the HTML created from knitting the Rmd, you can include it as an option at the top of your R chunk. For example: {r, fig.alt = “Bar chart showing the daily harvest of cucumbers. The peak cucumber collection day is August 18th”}. In this activity, there will be prompts in the template Rmd but you should try to continue doing this for future assignments.</p>
+</section>
+<section id="bivariate-visualizations-1" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="bivariate-visualizations-1">Bivariate Visualizations</h2>
+<p>The outcome of the 2016 presidential election surprised many people. In this activity we will analyze data from the 2016 presidential election. To better understand it ourselves, we’ll explore county-level election outcomes and demographics. The data set, prepared by Alicia Johnson, combines 2008/2012/2016 county-level election returns from <a href="https://github.com/tonmcg/County_Level_Election_Results_12-16">Tony McGovern on github</a>, county-level demographics from the <code>df_county_demographics</code> data set within the <code>choroplethr</code> R package, and red/purple/blue state designations from <a href="http://www.270towin.com/">http://www.270towin.com/</a>.</p>
+<section id="getting-to-know-the-dataset" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="getting-to-know-the-dataset">Getting to know the dataset</h3>
+<div class="cell">
+<pre class="example cell-code"><code>Begin by loading the [election data](data/electionDemographics16.csv) from "https://bcheggeseth.github.io/112_spring_2023/data/electionDemographics16.csv" and getting to know the data. Write out R functions to get to know the data using the prompts below to guide you.</code></pre>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data from "https://bcheggeseth.github.io/112_spring_2023/data/electionDemographics16.csv"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>elect <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://bcheggeseth.github.io/112_spring_2023/data/electionDemographics16.csv"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check out the first rows of elect.  What are the units of observation?</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># How much data do we have?</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># What are the names of the variables?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<details>
+<summary>
+Solution
+</summary>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data from "https://bcheggeseth.github.io/112_spring_2023/data/electionDemographics16.csv"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>elect <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://bcheggeseth.github.io/112_spring_2023/data/electionDemographics16.csv"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Error in open.connection(structure(4L, class = c("curl", "connection"), conn_id = &lt;pointer: 0x0000000000000266&gt;), : Recv failure: Connection was reset</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Check out the first rows of elect.</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># The units of observation are county election results</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#  The variables are county name, vote counts for parties and total for presidential elections, and more</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(elect)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Error in eval(expr, envir, enclos): object 'elect' not found</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># There are 3,112 counties and 34 variables</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(elect)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="do">## Error in eval(expr, envir, enclos): object 'elect' not found</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># See the long list below</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(elect)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="do">## Error in eval(expr, envir, enclos): object 'elect' not found</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</details>
+<p><br>
+</p>
+<div class="cell">
+<pre class="example cell-code"><code>Explore the win column:
+    The `winrep_2016` variable indicates whether or not the Republican (Trump) won the county in 2016, thus is *categorical*.  Let's construct both numerical and visual summaries of Trump wins/losses.  (Before you do, what do you anticipate?) </code></pre>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct a table (a numerical summary) of the number of counties that Trump won/lost</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(xxx) <span class="co"># fill in the xxx</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Attach a library needed for ggplots</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xxx)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct a bar chart (a visual summary) of this variable.</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(xxx, <span class="fu">aes</span>(xxx)) <span class="sc">+</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_xxx</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<details>
+<summary>
+Solution
+</summary>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct a table (a numerical summary) of the number of counties that Trump won/lost</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(elect<span class="sc">$</span>winrep_2016)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in eval(expr, envir, enclos): object 'elect' not found</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Attach a library needed for ggplots</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct a bar chart (a visual summary) of this variable.</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">x =</span> winrep_2016)) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in eval(expr, envir, enclos): object 'elect' not found</code></pre>
+</div>
+</div>
+</details>
+<p><br>
+</p>
+<div class="cell" name="Explore Vote Percentages">
+<pre class="example cell-code"><code>The `perrep_2016` variable includes a bit more detail about Trump's support in each county.    
+</code></pre>
+</div>
+<ol type="a">
+<li>Since it’s <em>quantitative</em> we need different tools to visually explore the variability in <code>perrep_2016</code>. To this end, construct &amp; interpret both a histogram and density plot of <code>perrep_2016</code>. (Before you do, what do you anticipate?)</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># histogram</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(xxx)) <span class="sc">+</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_xxx</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># density plot</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(xxx)) <span class="sc">+</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_xxx</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<details>
+<summary>
+Solution
+</summary>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># histogram</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">x =</span> perrep_2016)) <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in eval(expr, envir, enclos): object 'elect' not found</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># density plot</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">x =</span> perrep_2016)) <span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in eval(expr, envir, enclos): object 'elect' not found</code></pre>
+</div>
+</div>
+<p>The vast majority of counties in the U.S. had a Republican majority vote (&gt; 50%) within that county.</p>
+</details>
+<ol start="2" type="a">
+<li>Thus far, we have a good sense for how Trump’s support varied from county to county. We don’t yet have a good sense for <em>why</em>. What other variables (ie. county features) might explain some of the variability in Trump’s support from county to county? Which of these variables do you think will be the best predictors of support? The worst?</li>
+</ol>
+<details>
+<summary>
+Solution
+</summary>
+Maybe past election history and information about the people that live there and the social culture and values. Let’s see…
+</details>
+</section>
+<section id="background-on-visualizing-relationships" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="background-on-visualizing-relationships">Background on visualizing relationships</h3>
+<p>We’ve come up with a list of variables that might explain some of the variability in Trump’s support from county to county. Thus we’re interested in the relationship between:</p>
+<ul>
+<li><strong><span style="color:red">response variable</span></strong>: the variable whose variability we would like to explain (Trump’s percent of the vote)<br>
+</li>
+<li><strong><span style="color:red">predictors</span></strong>: variables that might explain some of the variability in the response (percent white, per capita income, state color, etc)</li>
+</ul>
+<p>Our goal is to construct visualizations that allow us to examine/identify the following features of the relationships among these variables:</p>
+<ul>
+<li>relationship <em>trends</em> (direction and form)<br>
+</li>
+<li>relationship <em>strength</em> (degree of variability from the trend)<br>
+</li>
+<li><em>outliers</em> in the relationship</li>
+</ul>
+<p>Before constructing visualizations of the relationship among any set of these variables, we need to understand what features these should have. As with univariate plots, the appropriate visualization also depends upon whether the variables are quantitative or categorical.</p>
+<p>Recall some <strong>basic rules in constructing graphics:</strong></p>
+<ul>
+<li>Each <strong>quantitative variable</strong> requires a new axis. (We’ll discuss later what to do when we run out of axes!)<br>
+</li>
+<li>Each <strong>categorical variable</strong> requires a new way to “group” the graphic (eg: using colors, shapes, separate facets, etc to capture the grouping)<br>
+</li>
+<li>For visualizations in which <strong>overlap</strong> in glyphs or plots obscures the patterns, try faceting or transparency.</li>
+</ul>
+<div class="cell" name="Mock-Ups">
+<pre class="example cell-code"><code>Consider a subset  of the variables: 
+</code></pre>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-error">
+<pre><code>Error in eval(expr, envir, enclos): object 'elect' not found</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in eval(expr, envir, enclos): object 'fd' not found</code></pre>
+</div>
+</div>
+<p>In groups, sketch on paper a mock-up of a visualization of the relationship between the given pair of variables (i.e., what type of chart is appropriate to demonstrate the relationship?):</p>
+<ol type="a">
+<li><p>The relationship between <code>perrep_2016</code> (the response) and <code>perrep_2012</code> (the predictor).</p></li>
+<li><p>The relationship between <code>perrep_2016</code> (the response) and <code>StateColor</code> (the predictor). Think: how might we modify the below density plot of <code>perrep_2016</code> to distinguish between counties in red/purple/blue states?</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">x =</span> perrep_2016)) <span class="sc">+</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in eval(expr, envir, enclos): object 'elect' not found</code></pre>
+</div>
+</div>
+<ol start="3" type="a">
+<li>The relationship between Trump’s county-levels wins/losses <code>winrep_2016</code> (the response) and <code>StateColor</code> (the predictor). Think: how might we modify the below bar plot of <code>winrep_2016</code> to distinguish between counties in red/purple/blue states?</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">x =</span> winrep_2016)) <span class="sc">+</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in eval(expr, envir, enclos): object 'elect' not found</code></pre>
+</div>
+</div>
+</section>
+<section id="visualizing-quantitiative-vs-quantitative-relationships" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="visualizing-quantitiative-vs-quantitative-relationships">Visualizing quantitiative vs quantitative relationships</h3>
+<p>Let’s start by exploring the relationship between Trump’s 2016 support (<code>perrep_2016</code>) and Romney’s 2012 support (<code>perrep_2012</code>), both quantitative variables.</p>
+<div class="cell" name="Scatterplots and Glyphs">
+<pre class="example cell-code"><code>Both `perrep_2016` and `perrep_2012` are quantitative, thus require their own axes.  Traditionally, the response variable (what we are trying to predict or explain) is placed on the y-axis.  Once the axes are set up, each case is represented by a "glyph" at the coordinates defined by these axes.    
+</code></pre>
+</div>
+<ol type="a">
+<li>Make a scatterplot of <code>perrep_2016</code> vs <code>perrep_2012</code> with different glyphs: points or text.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># just a graphics frame</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">y =</span> perrep_2016, <span class="at">x =</span> perrep_2012))</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># add a layer with "point" glyphs</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">y =</span> perrep_2016, <span class="at">x =</span> perrep_2012)) <span class="sc">+</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="co"># add a layer with symbol glyphs</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">y =</span> perrep_2016, <span class="at">x =</span> perrep_2012)) <span class="sc">+</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">3</span>)</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="co"># add a layer with "text" glyphs</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">y =</span> perrep_2016, <span class="at">x =</span> perrep_2012)) <span class="sc">+</span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> abb))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<details>
+<summary>
+Solution
+</summary>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># just a graphics frame</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">y =</span> perrep_2016, <span class="at">x =</span> perrep_2012))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in eval(expr, envir, enclos): object 'elect' not found</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add a layer with "point" glyphs</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">y =</span> perrep_2016, <span class="at">x =</span> perrep_2012)) <span class="sc">+</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in eval(expr, envir, enclos): object 'elect' not found</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add a layer with symbol glyphs</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">y =</span> perrep_2016, <span class="at">x =</span> perrep_2012)) <span class="sc">+</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in eval(expr, envir, enclos): object 'elect' not found</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add a layer with "text" glyphs</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">y =</span> perrep_2016, <span class="at">x =</span> perrep_2012)) <span class="sc">+</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> abb))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in eval(expr, envir, enclos): object 'elect' not found</code></pre>
+</div>
+</div>
+</details>
+<p><br>
+</p>
+<ol start="2" type="a">
+<li>Summarize the relationship between the Republican candidates’ support in 2016 and 2012. Be sure to comment on:<br>
+- the strength of the relationship (weak/moderate/strong)<br>
+- the direction of the relationship (positive/negative)<br>
+- outliers (In what state do counties deviate from the national trend? Explain why this might be the case)</li>
+</ol>
+<details>
+<summary>
+Solution
+</summary>
+<p>There is a strong positive relationship between the Republican support from 2012 to 2016, meaning that if a county highly favors a Republican candidate in 2012, they were likely to highly favor a Republican in 2016. Counties in Utah seems to not quite follow this pattern with lower support in 2016 than what you’d expect given the support in 2012. This is because the 2012 candidate was from Utah (data context!).</p>
+</details>
+<p><br>
+</p>
+<div class="cell" name="Capture the Trend with 'smooths'">
+<pre class="example cell-code"><code>The trend of the relationship between `perrep_2016` and `perrep_2012` is clearly positive and (mostly) linear.  We can highlight this trend by adding a model "smooth" to the plot.    
+</code></pre>
+</div>
+<ol type="a">
+<li>Add a layer with a model smooth:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">y =</span> perrep_2016, <span class="at">x =</span> perrep_2012)) <span class="sc">+</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<details>
+<summary>
+Solution
+</summary>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">y =</span> perrep_2016, <span class="at">x =</span> perrep_2012)) <span class="sc">+</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in eval(expr, envir, enclos): object 'elect' not found</code></pre>
+</div>
+</div>
+</details>
+<p>&nbsp;</p>
+<ol start="2" type="a">
+<li>Construct a new plot that contains the model smooth but does not include the individual cases (eg: point glyphs).</li>
+</ol>
+<details>
+<summary>
+Solution
+</summary>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">y =</span> perrep_2016, <span class="at">x =</span> perrep_2012)) <span class="sc">+</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Error in eval(expr, envir, enclos): object 'elect' not found</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</details>
+<p><br>
+</p>
+<ol start="3" type="a">
+<li>Notice that there are gray bands surrounding the blue model smooth line. What do these gray bars illustrate/capture and why are they widest at the “ends” of the model?</li>
+</ol>
+<details>
+<summary>
+Solution
+</summary>
+There are fewer data points at the “ends” so there is more uncertainty about the relationship.
+</details>
+<ol start="4" type="a">
+<li>By default, <code>geom_smooth</code> adds a smooth, localized model line. To examine the “best” <em>linear model</em>, we can specify <code>method="lm"</code>:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">y =</span> perrep_2016, <span class="at">x =</span> perrep_2012)) <span class="sc">+</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<details>
+<summary>
+Solution
+</summary>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">y =</span> perrep_2016, <span class="at">x =</span> perrep_2012)) <span class="sc">+</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in eval(expr, envir, enclos): object 'elect' not found</code></pre>
+</div>
+</div>
+</details>
+<div class="cell" name="Modify the Scatterplots">
+<pre class="example cell-code"><code>As with univariate plots, we can change the aesthetics of scatterplots.    
+</code></pre>
+</div>
+<ol type="a">
+<li>Add appropriate axis labels to your scatterplot. Label the y-axis “Trump 2016 support (%)” and label the x-axis “Romney 2012 support (%)”.<br>
+</li>
+<li>Change the color of the points.<br>
+</li>
+<li>Add some <em>transparency</em> to the points. NOTE: <code>alpha</code> can be between 0 (complete transparency) and 1 (no transparency).<br>
+</li>
+<li>Why is transparency useful in this particular graphic?</li>
+</ol>
+<details>
+<summary>
+Solution
+</summary>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">y =</span> perrep_2016, <span class="at">x =</span> perrep_2012)) <span class="sc">+</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Romney 2012 support (%)"</span>, <span class="at">y =</span> <span class="st">"Trump 2016 support (%)"</span>) <span class="sc">+</span> </span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in eval(expr, envir, enclos): object 'elect' not found</code></pre>
+</div>
+</div>
+</details>
+<p><br>
+</p>
+<div class="cell" name="More Scatterplots">
+<pre class="exercise cell-code"><code>2012 results aren't the only possible predictor of 2016 results.  Consider two more possibilities.    
+</code></pre>
+</div>
+<ol type="a">
+<li>Construct a scatterplot of <code>perrep_2016</code> and <code>median_rent</code>. Summarize the relationship between these two variables.<br>
+</li>
+<li>Construct a scatterplot of <code>perrep_2016</code> and <code>percent_white</code>. Summarize the relationship between these two variables.<br>
+</li>
+<li>Among <code>perrep_2012</code>, <code>median_rent</code> and <code>percent_white</code>, which is the best predictor of <code>perrep_2016</code>? Why?</li>
+</ol>
+</section>
+<section id="visualizing-quantitative-vs.-categorical-relationships" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="visualizing-quantitative-vs.-categorical-relationships">Visualizing quantitative vs.&nbsp;categorical relationships</h3>
+<p>Consider a univariate histogram and density plot of <code>perrep_2016</code>:</p>
+<div class="cell">
+<div class="cell-output cell-output-error">
+<pre><code>Error in eval(expr, envir, enclos): object 'elect' not found</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in eval(expr, envir, enclos): object 'elect' not found</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in eval(expr, envir, enclos): object 'g1' not found</code></pre>
+</div>
+</div>
+<p>To visualize the relationship between Trump’s 2016 support (<code>perrep_2016</code>) and the <code>StateColor</code> (categorical) we need to incorporate a grouping mechanism. Work through the several options below.</p>
+<div class="cell" name="Side-by-Side Density Plots">
+<pre class="example cell-code"><code>We can show density plots for each state color next to each other:</code></pre>
+</div>
+<ol type="a">
+<li>Construct a density plot for each group.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">x =</span> perrep_2016, <span class="at">fill =</span> StateColor)) <span class="sc">+</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="a">
+<li>Notice that <code>ggplot</code> randomly assigns colors to group based on alphabetical order. In this example, the random color doesn’t match the group itself (red/purple/blue)! We can fix this:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">x =</span> perrep_2016, <span class="at">fill =</span> StateColor)) <span class="sc">+</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"purple"</span>, <span class="st">"red"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="a">
+<li>The overlap between the groups makes it difficult to explore the features of each. One option is to add <em>transparency</em> to the density plots:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">x =</span> perrep_2016, <span class="at">fill =</span> StateColor)) <span class="sc">+</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"purple"</span>, <span class="st">"red"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="a">
+<li>Yet another option is to separate the density plots into separate “facets” defined by group:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">x =</span> perrep_2016, <span class="at">fill =</span> StateColor)) <span class="sc">+</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"purple"</span>, <span class="st">"red"</span>)) <span class="sc">+</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> StateColor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" name="Side-by-Side Histograms">
+<pre class="exercise cell-code"><code>Let's try a similar strategy using histograms to illustrate the relationship between `perrep_2016` and `StateColor`.    </code></pre>
+</div>
+<ol type="a">
+<li>Start with the default histogram:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">x =</span> perrep_2016, <span class="at">fill =</span> StateColor)) <span class="sc">+</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="a">
+<li>That’s not very helpful! Separate the histograms into separate facets for each <code>StateColor</code> group.</li>
+</ol>
+<div class="cell" name="More Options!">
+<pre class="example cell-code"><code>Density plots and histograms aren't the only type of viz we might use...    </code></pre>
+</div>
+<ol type="a">
+<li>Construct side-by-side violins and side-by-side boxplots (see description below).</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># violins instead</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">y =</span> perrep_2016, <span class="at">x =</span> StateColor)) <span class="sc">+</span></span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>()</span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a><span class="co"># boxes instead</span></span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">y =</span> perrep_2016, <span class="at">x =</span> StateColor)) <span class="sc">+</span></span>
+<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Box plots are constructed from five numbers - the minimum, 25th percentile, median, 75th percentile, and maximum value of a quantitative variable:</p>
+<div class="cell">
+<div class="cell-output cell-output-error">
+<pre><code>Error in knitr::include_graphics("images/Boxplot.png"): Cannot find the file(s): "images/Boxplot.png"</code></pre>
+</div>
+</div>
+<ol start="2" type="a">
+<li>In the future, we’ll typically use <em>density plots</em> instead of histograms, violins, and boxes. Explain at least one pro and one con of the density plot.</li>
+</ol>
+<div class="cell">
+<pre class="exercise cell-code"><code>Let's not forget the most important purpose of these visualizations!  Summarize the relationship between Trump's 2016 county-level support among red/purple/blue states.  
+</code></pre>
+</div>
+</section>
+<section id="visualizing-categorical-vs-categorical-relationships" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="visualizing-categorical-vs-categorical-relationships">Visualizing categorical vs categorical relationships</h3>
+<p>Finally, suppose that instead of Trump’s percentage support, we simply want to explore his county-level wins/losses:</p>
+<div class="cell">
+<div class="cell-output cell-output-error">
+<pre><code>Error in eval(expr, envir, enclos): object 'elect' not found</code></pre>
+</div>
+</div>
+<p>Specifically, let’s explore the relationship between <code>winrep_2016</code> and <code>StateColor</code>, another categorical variable.</p>
+<div class="cell" name="Side-by-side bar plots">
+<pre class="exercise cell-code"><code>We saw above that we can incorporate a new categorical variable into a visualization by using grouping features such as color or facets.  Let's add information about `StateColor` to our bar plot of `winrep_2016`.    
+</code></pre>
+</div>
+<ol type="a">
+<li><p>Construct the following 4 bar plot visualizations.</p>
+<p>::: {.cell}</p>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a stacked bar plot</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">x =</span> StateColor, <span class="at">fill =</span> winrep_2016)) <span class="sc">+</span></span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a><span class="co"># a side-by-side bar plot</span></span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">x =</span> StateColor, <span class="at">fill =</span> winrep_2016)) <span class="sc">+</span></span>
+<span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)</span>
+<span id="cb62-8"><a href="#cb62-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-9"><a href="#cb62-9" aria-hidden="true" tabindex="-1"></a><span class="co"># a proportional bar plot</span></span>
+<span id="cb62-10"><a href="#cb62-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">x =</span> StateColor, <span class="at">fill =</span> winrep_2016)) <span class="sc">+</span></span>
+<span id="cb62-11"><a href="#cb62-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>)</span>
+<span id="cb62-12"><a href="#cb62-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-13"><a href="#cb62-13" aria-hidden="true" tabindex="-1"></a><span class="co"># faceted bar plot</span></span>
+<span id="cb62-14"><a href="#cb62-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(elect, <span class="fu">aes</span>(<span class="at">x =</span> StateColor, <span class="at">fill =</span> winrep_2016)) <span class="sc">+</span></span>
+<span id="cb62-15"><a href="#cb62-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb62-16"><a href="#cb62-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>winrep_2016)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>:::</p></li>
+<li><p>Name one pro and one con of using the “proportional bar plot” instead of one of the other three options.</p></li>
+<li><p>What’s your favorite bar plot from part (a)? Why?</p></li>
+</ol>
+</section>
+<section id="practice" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="practice">Practice</h3>
+<section id="hot-dogs" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="hot-dogs">Hot Dogs</h4>
+<p>In the annual Nathan’s hot dog eating contest, people compete to eat as many hot dogs as possible in ten minutes. Data on past competitions were compiled by Nathan Yau for “Visualize This: The FlowingData Guide to Design, Visualization, and Statistics”:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>hotdogs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"http://datasets.flowingdata.com/hot-dog-contest-winners.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre class="exercise cell-code"><code>Address the following:
+   
+a. Construct a visualization of the winning number of hot dogs by year. THINK: Which is the response variable?      
+b. Temporal trends are often visualized using a line plot.  Add a `geom_line()` layer to your plot from part (a).       
+c. Summarize your observations about the temporal trends in the hot dog contest.    
+</code></pre>
+</div>
+<div class="cell">
+<pre class="exercise cell-code"><code>All but two of the past winners are from the U.S. or Japan:
+</code></pre>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(hotdogs<span class="sc">$</span>Country)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+      Germany         Japan        Mexico United States 
+            1             9             1            20 </code></pre>
+</div>
+</div>
+<p>Use the following code to <em>filter</em> out just the winners from U.S. and Japan and name this <code>hotdogsSub</code>. (Don’t worry about the code itself - we’ll discuss similar syntax later in the semester!)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>hotdogsSub <span class="ot">&lt;-</span> hotdogs <span class="sc">%&gt;%</span></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Japan"</span>, <span class="st">"United States"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="a">
+<li>Using a density plot approach <em>without</em> facets, construct a visualization of how the number of hot dogs eaten varies by country.</li>
+<li>Repeat part a using a density plot approach <em>with</em> facets.<br>
+</li>
+<li>Repeat part a using <em>something other than</em> a density plot approach. (There are a few options!)<br>
+</li>
+<li>Summarize your observations about the number of hot dogs eaten by country.</li>
+</ol>
+</section>
+<section id="the-bechdel-test" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="the-bechdel-test">The Bechdel Test</h4>
+<p>Recall the “Bechdel test” data from the previous activity. As a reminder, the “Bechdel test” tests whether movies meet the following criteria:</p>
+<ul>
+<li>there are <span class="math inline">\(\ge\)</span> 2 female characters<br>
+</li>
+<li>the female characters talk to each other<br>
+</li>
+<li>at least 1 time, they talk about something other than a male character</li>
+</ul>
+<p>In the fivethirtyeight.com article <a href="http://fivethirtyeight.com/features/the-dollar-and-cents-case-against-hollywoods-exclusion-of-women/">“The Dollar-And-Cents Case Against Hollywood’s Exclusion of Women”</a>, the authors analyze which Hollywood movies do/don’t pass the test. Their data are available in the <code>fivethirtyeight</code> package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fivethirtyeight)</span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(bechdel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In investigating budgets and profits, the authors “focus on films released from 1990 to 2013, since the data has significantly more depth since then.” Use the following code to filter out just the movies in these years and name the resulting data set <code>Beyond1990</code> (don’t worry about the syntax):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>Beyond1990 <span class="ot">&lt;-</span> bechdel <span class="sc">%&gt;%</span></span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">1990</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre class="exercise cell-code"><code>Address the following:
+  
+a. Construct a visualization that addresses the following research question: Do bigger budgets (`budget_2013`) pay off with greater box office returns (`domgross_2013`)?  In constructing this visualization, add a smooth to highlight trends and pay attention to which of these variables is the response.       
+b. Using your visualization as supporting evidence, answer the research question.          
+c. Part of the fivethirtyeight article focuses on how budgets (`budget_2013`) differ among movies with different degrees of female character development (`clean_test`).  Construct a visualization that highlights the relationship between these two variables.  There are many options - some are better than others!       
+d. Using your visualization as supporting evidence, address fivethirtyeight's concerns.  </code></pre>
+</div>
+<div class="cell">
+<pre class="exercise cell-code"><code>NOTE: The following exercise is inspired by a similar exercise proposed by Albert Kim, one of the `fivethirtyeight` package authors.    
+    Return to the fivethirtyeight.com article and examine the plot titled "The Bechdel Test Over Time".    </code></pre>
+</div>
+<ol type="a">
+<li>Summarize the trends captured by this plot. (How has the representation of women in movies evolved over time?)<br>
+</li>
+<li>Recreate this plot from the article!</li>
+</ol>
+<p>To do so, you’ll need to create a new data set named <code>newbechdel</code> in which the order of the Bechdel categories (<code>clean_test</code>) and the year categories (<code>yearCat</code>) match those used by fivethirtyeight. Don’t worry about the syntax:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>newbechdel <span class="ot">&lt;-</span> bechdel <span class="sc">%&gt;%</span></span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">clean_test =</span> <span class="fu">factor</span>(bechdel<span class="sc">$</span>clean_test, <span class="fu">c</span>(<span class="st">"nowomen"</span>, <span class="st">"notalk"</span>, <span class="st">"men"</span>, <span class="st">"dubious"</span>, <span class="st">"ok"</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">yearCat =</span> <span class="fu">cut</span>(year, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">1969</span>, <span class="dv">2014</span>, <span class="at">by =</span> <span class="dv">5</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Further, you’ll need to add the following layer in order to get a color scheme that’s close to that in the article:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"salmon"</span>, <span class="st">"pink"</span>, <span class="st">"steelblue1"</span>, <span class="st">"steelblue4"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>NOTE: that your plot won’t look <em>exactly</em> like the authors’, but should be close to this:</p>
+<div class="cell">
+<div class="cell-output cell-output-error">
+<pre><code>Error in knitr::include_graphics("images/bechdel_hist.jpeg"): Cannot find the file(s): "images/bechdel_hist.jpeg"</code></pre>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="appendix-r-functions" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="appendix-r-functions">Appendix: R Functions</h2>
+<section id="data-wrangling-r-functions" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="data-wrangling-r-functions">Data Wrangling R functions</h3>
+<table class="table">
+<colgroup>
+<col style="width: 34%">
+<col style="width: 39%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function/Operator</th>
+<th style="text-align: center;">Action</th>
+<th style="text-align: right;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>filter(data,condition)</code></td>
+<td style="text-align: center;">Provide rows of a data set that satisfy a condition</td>
+<td style="text-align: right;"><code>bechdel %&gt;% filter(year &gt;= 1990)</code></td>
+</tr>
+<tr class="even">
+<td><code>mutate(data,varname =)</code></td>
+<td style="text-align: center;">Create a new variable</td>
+<td style="text-align: right;"><code>bechdel %&gt;% mutate(yearCat = cut(year, breaks = seq(1969, 2014, by = 5)))</code></td>
+</tr>
+<tr class="odd">
+<td><code>cut(x,breaks)</code></td>
+<td style="text-align: center;">Cut a quantitative variable into categories by the break points</td>
+<td style="text-align: right;"><code>bechdel %&gt;% mutate(yearCat = cut(year, breaks = seq(1969, 2014, by = 5)))</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ggplot2-foundation-functions" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="ggplot2-foundation-functions">ggplot2 foundation functions</h3>
+<table class="table">
+<colgroup>
+<col style="width: 34%">
+<col style="width: 39%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function/Operator</th>
+<th style="text-align: center;">Action</th>
+<th style="text-align: right;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ggplot(data)</code></td>
+<td style="text-align: center;">Create a blank canvas that can create a visualization based on data</td>
+<td style="text-align: right;"><code>ggplot(data = elect)</code></td>
+</tr>
+<tr class="even">
+<td><code>+ geom_bar(aes(x))</code></td>
+<td style="text-align: center;">Add a bar plot</td>
+<td style="text-align: right;"><code>geom_bar(aes(x = winrep_2016))</code></td>
+</tr>
+<tr class="odd">
+<td><code>+ geom_bar(aes(x,fill),position='fill')</code></td>
+<td style="text-align: center;">Add a propotional bar plot</td>
+<td style="text-align: right;"><code>geom_bar(aes(x = winrep_2016,fill = StateColor),position='fill')</code></td>
+</tr>
+<tr class="even">
+<td><code>+ geom_bar(aes(x,fill),position='dodge')</code></td>
+<td style="text-align: center;">Add a side-by-side bar plot</td>
+<td style="text-align: right;"><code>geom_bar(aes(x = winrep_2016,fill = StateColor),position='dodge')</code></td>
+</tr>
+<tr class="odd">
+<td><code>+ geom_smooth(aes(x,y))</code></td>
+<td style="text-align: center;">Add a smoothed average curve of scatterplot</td>
+<td style="text-align: right;"><code>geom_smooth()</code></td>
+</tr>
+<tr class="even">
+<td><code>+ geom_smooth(aes(x,y),method='lm')</code></td>
+<td style="text-align: center;">Add a best fit line to a scatterplot</td>
+<td style="text-align: right;"><code>geom_smooth(method='lm')</code></td>
+</tr>
+<tr class="odd">
+<td><code>+ geom_point(aes(x,y))</code></td>
+<td style="text-align: center;">Add a scatterplot</td>
+<td style="text-align: right;"><code>geom_bar(aes(x = year,y=budget_2013))</code></td>
+</tr>
+<tr class="even">
+<td><code>+ geom_text(aes(x,y,label))</code></td>
+<td style="text-align: center;">Add a text to a plot</td>
+<td style="text-align: right;"><code>geom_text(aes(label=abb))</code></td>
+</tr>
+<tr class="odd">
+<td><code>+ facet_wrap(~x)</code></td>
+<td style="text-align: center;">Facet a plot (break into subplots based on groups)</td>
+<td style="text-align: right;"><code>facet_wrap(~StateColor)</code></td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

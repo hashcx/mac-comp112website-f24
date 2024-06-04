@@ -59,12 +59,12 @@ What's the difference between R and RStudio? Mainly, RStudio requires R -- thus 
 Open RStudio! You should see four panes, each serving a different purpose:
 
 ```{r fig-main,echo=FALSE,fig.cap="RStudio Interface"}
-knitr::include_graphics("images/RStudioImage.jpg")
+knitr::include_graphics("../images/rstudio-panes-labeled.jpeg")
 ```
 
 This short [video tour of RStudio](http://www.youtube.com/embed/JfIo2Ua_oqQ/) summarizes some basic features of the *console*.
 
-```{example, name="Warm Up"}
+```{name="Warm Up"}
 Use RStudio as a simple calculator to do the following:
   
   1) Perform a simple calculation: calculate `90/3`.
@@ -90,7 +90,7 @@ rep(seq(0, 12, by = 3), times =  3)
 rep(seq(0, 12, by = 3), each = 3) #notice the difference between the named input of times and each
 ```
 
-```{example, name="Assigning Values to Variables", label="assignment"}
+```{name="Assigning Values to Variables", label="assignment"}
 We often want to store our output for later use (why?).  The basic idea in R:    
   
     `name <- output`
@@ -120,7 +120,7 @@ square_3 + 2
 Not only does "Data Science" require statistical software, it requires *DATA*! Consider the Google definition:
 
 ```{r echo=FALSE,fig.cap="A datum."}
-knitr::include_graphics("images/datum.png")
+knitr::include_graphics("../images/datum.png")
 ```
 
 With this definition in mind, which of the following are examples of data?
@@ -173,7 +173,7 @@ The data table above is in *tidy* format. *Tidy* data tables have three key feat
 
 ![Tidy Data: Art by Allison Horst](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/main/rstats-artwork/tidydata_1.jpg)
 
-```{example, name="Units of Observation and Variables"}
+```{name="Units of Observation and Variables"}
 Consider the following in a group:   
 ```
 
@@ -189,7 +189,7 @@ c.  Yes
 
 \
 
-```{example name="Tidy vs. Untidy"}
+```{name="Tidy vs. Untidy"}
 Check out the following data.  Explain to each other why they are untidy and how we can tidy them.    
   
   a. Data 1: FIFA    
@@ -220,7 +220,7 @@ b.  The first column does not have a row name. It should be continent. Additiona
 
 For now, we'll focus on *tidy* data. In a couple of weeks, you'll learn how to "clean data" and turn untidy data into tidy data.
 
-```{example, name="Importing Package Data"}
+```{name="Importing Package Data"}
 The first step to working with data in RStudio is getting it in there!  How we do this depends on its format (eg: Excel spreadsheet, csv file, txt file) and storage locations (eg: online, within Wiki, desktop).  
 
 Luckily for us, the `fifa_audience` data are stored in the `fivethirtyeight` RStudio package. Copy and paste the following code into the Console and press Enter.
@@ -240,7 +240,7 @@ data("fifa_audience")
 fifa <- fifa_audience
 ```
 
-```{example, name="Examining Data Structures"}
+```{name="Examining Data Structures"}
 Before we can analyze our data, we must understand its structure.  Try out the following functions (copy and paste into the Console).  For each, make a note that describes its action.  
 ```
 
@@ -260,7 +260,7 @@ names(fifa)
 
 Solution
 
-```{r, collapse=TRUE}
+```{r collapse=TRUE}
 #View() opens up a new tab with a spreadsheet preview of the data to visually explore the data. It is commented out in the Rmarkdown/Quarto file because this is an interactive feature
 #View(fifa)  
 
@@ -274,7 +274,7 @@ dim(fifa)
 names(fifa)   
 ```
 
-```{example, name="Codebooks"}
+```{name="Codebooks"}
 Data are also only useful if we know what they measure!  The `fifa` data table is *tidy*; it doesn't have any helpful notes in the data itself.
 ```
 
@@ -292,7 +292,7 @@ Solution
 a.  Country's share of global population
 b.  Percentage between 0 and 100
 
-```{example, name="Examining a Single Variable"}
+```{name="Examining a Single Variable"}
 Consider the following:
 ```
 
@@ -342,7 +342,7 @@ In this course we will use an innovative format called R Markdown that dramatica
 
 To use R Markdown, you will write an R Markdown formatted file in RStudio and then ask RStudio to **knit** it into an HTML document (or occasionally a PDF or MS Word document). If you work in a Quarto document, you press the **render** button to turn it into an HTML document.
 
-```{example name="Deduce the R Markdown Format"}
+```{name="Deduce the R Markdown Format"}
 Look at this [Sample RMarkdown](http://www.statpower.net/Content/310/R%20Stuff/SampleMarkdown.Rmd) and the [HTML webpage](http://www.statpower.net/Content/310/R%20Stuff/SampleMarkdown.html) it creates. Consider the following and discuss:
     
 a) How are bullets, italics, and section headers represented in the R Markdown file?
@@ -369,7 +369,7 @@ Now take a look at the [R Markdown cheatsheet](https://github.com/rstudio/cheats
 
 Complete the following. If you get stuck along the way, refer to the R Markdown cheatsheet linked above, search the web for answers, and/or ask for help!
 
-```{exercise name="Your First R Markdown File"}
+```{name="Your First R Markdown File"}
 Create a new R Markdown (or a Quarto document) about your favorite food.    
 
 a. Create a new file in RStudio (File -> New File -> R Markdown or Quarto Document) with a Title of `First_Markdown` [unclick the visual editor button]. Save it to a new folder on your Desktop called `COMP_STAT_112`; within that new folder, create another new folder called `Assignment_01`.  
@@ -383,7 +383,7 @@ e. Write a very brief essay about your favorite food. Make sure to include:
 f. Compile (Knit/Render) the document into an html file [which appears in the folder `Assignment_01` you created] and make sure it looks like you want it to.
 ```
 
-```{exercise name="New Data!"}
+```{name="New Data!"}
 There's a data set named `comic_characters` in the `fivethirtyeightdata` package.
 ```
 

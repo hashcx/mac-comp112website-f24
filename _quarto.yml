@@ -16,7 +16,7 @@ format:
   html:
     code-copy: true
     theme: cosmo
-    css: sty/styles.css
+    css: styles/styles.css
     toc: true
 
 execute:

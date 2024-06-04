@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.553">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>COMP/STAT 112: Introduction to Data Science - P1: Intro to R, RStudio, and R Markdown</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../src/01-RStudio_Intro.html">Src</a></li><li class="breadcrumb-item"><a href="../src/01-RStudio_Intro.html">P1: Intro to R, RStudio, and R Markdown</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">COMP/STAT 112: Introduction to Data Science</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Src</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/01-RStudio_Intro.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">P1: Intro to R, RStudio, and R Markdown</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/02-Intro_Data_Viz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">(PART) Visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/03-Effective_Viz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Effective Visualizations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/04-Bivariate_Viz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">options(htmltools.dir.version = FALSE)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/05-Multivariate_Viz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Multivariate Visualizations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/07-Six_Main_Verbs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">(PART) Data Wrangling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/08-Reshaping_Data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reshaping Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/09-Join.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Joining Two Data Frames</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/10-Factors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Categorical Variables as Factors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/11-Mini_Project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mini-Project</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/12-Data_Import.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">(PART) Data Acquisition &amp; Cleaning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/13-EDA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exploratory Data Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/14-Regex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regular Expressions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/15-Data_Scraping.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">(PART) Additional Topics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/16-API.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Public Web APIs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/17-SQL.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SQL</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/18-Text_Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Text Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/19-Adv_Viz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Advanced Visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/21-Prez_Tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentation Tools</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link active" data-scroll-target="#learning-goals">Learning Goals</a></li>
+  <li><a href="#getting-started-in-rstudio" id="toc-getting-started-in-rstudio" class="nav-link" data-scroll-target="#getting-started-in-rstudio">Getting Started in RStudio</a>
+  <ul class="collapse">
+  <li><a href="#download-r-rstudio" id="toc-download-r-rstudio" class="nav-link" data-scroll-target="#download-r-rstudio">Download R &amp; RStudio</a></li>
+  <li><a href="#a-quick-tour-of-rstudio" id="toc-a-quick-tour-of-rstudio" class="nav-link" data-scroll-target="#a-quick-tour-of-rstudio">A quick tour of RStudio</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#tidy-data" id="toc-tidy-data" class="nav-link" data-scroll-target="#tidy-data">Tidy Data</a></li>
+  <li><a href="#data-basics-in-rstudio" id="toc-data-basics-in-rstudio" class="nav-link" data-scroll-target="#data-basics-in-rstudio">Data Basics in RStudio</a></li>
+  </ul></li>
+  <li><a href="#r-markdownquarto-and-reproducible-research" id="toc-r-markdownquarto-and-reproducible-research" class="nav-link" data-scroll-target="#r-markdownquarto-and-reproducible-research">R Markdown/Quarto and Reproducible Research</a></li>
+  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
+  <li><a href="#appendix-r-functions" id="toc-appendix-r-functions" class="nav-link" data-scroll-target="#appendix-r-functions">Appendix: R Functions</a>
+  <ul class="collapse">
+  <li><a href="#r-as-a-calculator" id="toc-r-as-a-calculator" class="nav-link" data-scroll-target="#r-as-a-calculator">R as a calculator</a></li>
+  <li><a href="#r-basics" id="toc-r-basics" class="nav-link" data-scroll-target="#r-basics">R Basics</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../src/01-RStudio_Intro.html">Src</a></li><li class="breadcrumb-item"><a href="../src/01-RStudio_Intro.html">P1: Intro to R, RStudio, and R Markdown</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">P1: Intro to R, RStudio, and R Markdown</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="learning-goals" class="level2">
+<h2 class="anchored" data-anchor-id="learning-goals">Learning Goals</h2>
+<ul>
+<li>Download and install the necessary tools (R, RStudio)</li>
+<li>Develop comfort in navigating the tools in RStudio</li>
+<li>Develop comfort in writing and knitting a R Markdown (or a new Quarto) file</li>
+<li>Identify the characteristics of tidy data</li>
+<li>Use R code: as a calculator and to explore tidy data</li>
+</ul>
+</section>
+<section id="getting-started-in-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started-in-rstudio">Getting Started in RStudio</h2>
+<p>As you might guess from the name, “Data Science” requires <em>data</em>. Working with modern (large, messy) data sets requires statistical software. We’ll exclusively use <strong>RStudio</strong>. Why?</p>
+<ul>
+<li>it’s free<br>
+</li>
+<li>it’s open source (the code is free &amp; anybody can contribute to it)</li>
+<li>it has a huge online community (which is helpful for when you get stuck)<br>
+</li>
+<li>it’s one of the industry standards<br>
+</li>
+<li>it can be used to create <em>reproducible</em> and lovely documents (In fact, the course materials that you’re currently reading were constructed entirely within RStudio!)</li>
+</ul>
+<section id="download-r-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="download-r-rstudio">Download R &amp; RStudio</h3>
+<p>To get started, take the following two steps <em>in the given order</em>. Even if you already have R/RStudio, make sure to update to the most recent versions.</p>
+<ol type="1">
+<li>Download and install the R statistical software at <a href="https://mirror.las.iastate.edu/CRAN/" class="uri">https://mirror.las.iastate.edu/CRAN/</a><br>
+</li>
+</ol>
+<ul>
+<li>Mac: Check to see if you have an Intel or Apple Silicon Processor Chip (Apple logo &gt; About this Mac). This will impact the version you download.</li>
+</ul>
+<ol start="2" type="1">
+<li>Download and install the FREE version of RStudio at <a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a></li>
+</ol>
+<ul>
+<li>Mac: Once you download the dmg file and click on it, drag the RStudio icon to applications and then open Finder and click the eject icon next to the RStudio temporary drive under Locations.</li>
+</ul>
+<p>If you are having issues with downloading, log on to <a href="https://rstudio.macalester.edu/" class="uri">https://rstudio.macalester.edu/</a> (use Mac credentials) to use the RStudio server.</p>
+<p>What’s the difference between R and RStudio? Mainly, RStudio requires R – thus it does everything R does <em>and more</em>. We will be using RStudio exclusively.</p>
+</section>
+<section id="a-quick-tour-of-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="a-quick-tour-of-rstudio">A quick tour of RStudio</h3>
+<p>Open RStudio! You should see four panes, each serving a different purpose:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-main" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-main-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/rstudio-panes-labeled.jpeg" class="img-fluid figure-img" width="2481">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-main-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: RStudio Interface
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>This short <a href="http://www.youtube.com/embed/JfIo2Ua_oqQ/">video tour of RStudio</a> summarizes some basic features of the <em>console</em>.</p>
+<pre name="Warm Up"><code>Use RStudio as a simple calculator to do the following:
+  
+  1) Perform a simple calculation: calculate `90/3`.
+  2) RStudio has built-in *functions* to which we supply the necessary *arguments*:  `function(arguments)`.  Use the built-in function `sqrt` to calculate the square root of 25.
+  3) Use the built-in function `rep` to repeat the number "5" eight times. (Type `?rep` in the console and press Return. Check out the Help documentation for examples at the bottom.)
+  4) Use the `seq` function to create the vector `(0, 3, 6, 9, 12)`.  (Type `?seq` in the console and press Return.)
+  5) Create a new vector by concatenating three repetitions of the vector from the previous part. (Type `?c` in the console and press Return.)</code></pre>
+<p>Solution</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">90</span><span class="sc">/</span><span class="dv">3</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 30</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">25</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 5</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">5</span>, <span class="at">times =</span> <span class="dv">8</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 5 5 5 5 5 5 5 5</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">12</span>, <span class="at">by =</span> <span class="dv">3</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [1]  0  3  6  9 12</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">12</span>, <span class="at">by =</span> <span class="dv">3</span>), <span class="at">times =</span>  <span class="dv">3</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="do">##  [1]  0  3  6  9 12  0  3  6  9 12  0  3  6  9 12</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">12</span>, <span class="at">by =</span> <span class="dv">3</span>), <span class="at">each =</span> <span class="dv">3</span>) <span class="co">#notice the difference between the named input of times and each</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="do">##  [1]  0  0  0  3  3  3  6  6  6  9  9  9 12 12 12</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>```{name=“Assigning Values to Variables”, label=“assignment”} We often want to store our output for later use (why?). The basic idea in R:</p>
+<pre><code>`name &lt;- output`</code></pre>
+<p>Copy and paste the following code into the console, line by line. NOTE: RStudio ignores any content after the <code>#</code>. Thus we use this to make ‘comments’ and organize our code.</p>
+<pre><code>
+
+::: {.cell}
+
+```{.r .cell-code}
+#type square_3
+square_3
+    
+#calculate 3 squared
+3^2    
+    
+#store this as "square_3"
+square_3 &lt;- 3^2    
+    
+#type square_3 again!
+square_3
+    
+#do some math with square_3
+square_3 + 2</code></pre>
+<p>:::</p>
+</section>
+<section id="data" class="level3">
+<h3 class="anchored" data-anchor-id="data">Data</h3>
+<p>Not only does “Data Science” require statistical software, it requires <em>DATA</em>! Consider the Google definition:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/datum.png" class="img-fluid figure-img" width="458"></p>
+<figcaption>A datum.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>With this definition in mind, which of the following are examples of data?</p>
+<ul>
+<li>tables</li>
+</ul>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>  family father mother sex height nkids
+1      1   78.5   67.0   M   73.2     4
+2      1   78.5   67.0   F   69.2     4
+3      1   78.5   67.0   F   69.0     4
+4      1   78.5   67.0   F   69.0     4
+5      2   75.5   66.5   M   73.5     4
+6      2   75.5   66.5   M   72.5     4</code></pre>
+</div>
+</div>
+<ul>
+<li><p><a href="https://www.google.com/search?hl=en&amp;biw=1439&amp;bih=656&amp;tbm=isch&amp;sa=1&amp;q=messy+college+dorm+rooms&amp;oq=messy+college+dorm+rooms&amp;gs_l=psy-ab.3...20720.21922.0.22183.6.6.0.0.0.0.143.552.4j2.6.0....0...1.1.64.psy-ab..1.1.142...0i13k1.uaj5gYQ4t50">photo</a></p></li>
+<li><p><a href="https://www.youtube.com/watch?v=wMm7VdH05jY">video</a></p></li>
+<li><p><a href="https://twitter.com/data4blacklives?lang=en">text / tweets</a></p></li>
+</ul>
+<p>We’ll mostly work with data that look like this:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>  family father mother sex height nkids
+1      1   78.5   67.0   M   73.2     4
+2      1   78.5   67.0   F   69.2     4
+3      1   78.5   67.0   F   69.0     4
+4      1   78.5   67.0   F   69.0     4
+5      2   75.5   66.5   M   73.5     4
+6      2   75.5   66.5   M   72.5     4</code></pre>
+</div>
+</div>
+<p>This isn’t as restrictive as it seems. We can convert the above signals: photos, videos, and text to a data table format!</p>
+</section>
+<section id="tidy-data" class="level3">
+<h3 class="anchored" data-anchor-id="tidy-data">Tidy Data</h3>
+<p><strong>Example:</strong> After a scandal among FIFA officials, fivethirtyeight.com posted an analysis of FIFA viewership, <a href="https://fivethirtyeight.com/features/how-to-break-fifa/">“How to Break FIFA”</a>. Here’s a snapshot of the data used in this article:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 16%">
+<col style="width: 20%">
+<col style="width: 21%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">country</th>
+<th style="text-align: left;">confederation</th>
+<th style="text-align: right;">population_share</th>
+<th style="text-align: right;">tv_audience_share</th>
+<th style="text-align: right;">gdp_weighted_share</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">United States</td>
+<td style="text-align: left;">CONCACAF</td>
+<td style="text-align: right;">4.5</td>
+<td style="text-align: right;">4.3</td>
+<td style="text-align: right;">11.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Japan</td>
+<td style="text-align: left;">AFC</td>
+<td style="text-align: right;">1.9</td>
+<td style="text-align: right;">4.9</td>
+<td style="text-align: right;">9.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">China</td>
+<td style="text-align: left;">AFC</td>
+<td style="text-align: right;">19.5</td>
+<td style="text-align: right;">14.8</td>
+<td style="text-align: right;">7.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">UEFA</td>
+<td style="text-align: right;">1.2</td>
+<td style="text-align: right;">2.9</td>
+<td style="text-align: right;">6.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brazil</td>
+<td style="text-align: left;">CONMEBOL</td>
+<td style="text-align: right;">2.8</td>
+<td style="text-align: right;">7.1</td>
+<td style="text-align: right;">5.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">United Kingdom</td>
+<td style="text-align: left;">UEFA</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">2.1</td>
+<td style="text-align: right;">4.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Italy</td>
+<td style="text-align: left;">UEFA</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">2.1</td>
+<td style="text-align: right;">4.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">France</td>
+<td style="text-align: left;">UEFA</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">4.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Russia</td>
+<td style="text-align: left;">UEFA</td>
+<td style="text-align: right;">2.1</td>
+<td style="text-align: right;">3.1</td>
+<td style="text-align: right;">3.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Spain</td>
+<td style="text-align: left;">UEFA</td>
+<td style="text-align: right;">0.7</td>
+<td style="text-align: right;">1.8</td>
+<td style="text-align: right;">3.1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The data table above is in <em>tidy</em> format. <em>Tidy</em> data tables have three key features:</p>
+<ol type="1">
+<li>Each row represents a <strong>unit of observation</strong> (also referred to as a case).<br>
+</li>
+<li>Each column represents a <strong>variable</strong> (ie. an attribute of the cases that can vary from case to case). Each variable is one of two types:<br>
+</li>
+</ol>
+<ul>
+<li><strong>quantitative</strong> = numerical/numbers with units<br>
+</li>
+<li><strong>categorical</strong> = discrete possibilities/categories<br>
+</li>
+</ul>
+<ol start="3" type="1">
+<li>Each entry contains a single data value; no analysis, summaries, footnotes, comments, etc., and only one value per cell</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/main/rstats-artwork/tidydata_1.jpg" class="img-fluid figure-img"></p>
+<figcaption>Tidy Data: Art by Allison Horst</figcaption>
+</figure>
+</div>
+<pre name="Units of Observation and Variables"><code>Consider the following in a group:   </code></pre>
+<ol type="a">
+<li>What are the units of observation in the FIFA data?<br>
+</li>
+<li>What are the variables? Which are quantitative? Which are categorical?<br>
+</li>
+<li>Are these <em>tidy</em> data?</li>
+</ol>
+<p>Solution</p>
+<ol type="a">
+<li>A FIFA member country</li>
+<li>country name, soccer or football confederation, country’s share of global population (percentage), country’s share of global world cup TV Audience (percentage), country’s GDP-weighted audience share (percentage)</li>
+<li>Yes</li>
+</ol>
+<p><br>
+</p>
+<pre name="Tidy vs. Untidy"><code>Check out the following data.  Explain to each other why they are untidy and how we can tidy them.    
+  
+  a. Data 1: FIFA    
+    
+              country  confederation  population share    tv_share
+        ------------- -------------- ----------------- ----------- ------------------
+        United States       CONCACAF     i don't know*       4.3%  *look up later      
+                 Japan           AFC               1.9       4.9%
+                 China           AFC              19.5      14.8%    
+                                                        total=24%           
+  
+  b. Data 2: Gapminder life expectancies by country    
+        
+                          country  1952  1957  1962
+        ------------ ------------ ----- ----- -----
+                Asia  Afghanistan  28.8  30.3  32.0
+                          Bahrain  50.9  53.8  56.9    
+              Africa      Algeria  43.0  45.7  48.3    
+</code></pre>
+<p>Solution</p>
+<ol type="a">
+<li>There are notes such as “I don’t know” and “look up later” in columns with numeric values; the last row with the total is a summary. We could remove the text notes, replace it with the value if known, and remove the last row with the total summary.</li>
+<li>The first column does not have a row name. It should be continent. Additionally, Bahrain needs a value for the continent.The column names ‘1952’, ‘1957’ and ‘1962’ are values not variables. The table should be ‘pivoted’ (more information on this coming soon!), so that there is an additional column named ‘year’ and each country has three observations (rows) associated with it (one for each year).</li>
+</ol>
+</section>
+<section id="data-basics-in-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="data-basics-in-rstudio">Data Basics in RStudio</h3>
+<p>For now, we’ll focus on <em>tidy</em> data. In a couple of weeks, you’ll learn how to “clean data” and turn untidy data into tidy data.</p>
+<pre name="Importing Package Data"><code>The first step to working with data in RStudio is getting it in there!  How we do this depends on its format (eg: Excel spreadsheet, csv file, txt file) and storage locations (eg: online, within Wiki, desktop).  
+
+Luckily for us, the `fifa_audience` data are stored in the `fivethirtyeight` RStudio package. Copy and paste the following code into the Console and press Enter.</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#download the data and information in the fivethirtyeight package (we only need to do this once)</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'fivethirtyeight'</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#load the fivethirtyeight package</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fivethirtyeight)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#load the fifa data</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"fifa_audience"</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#store this under a shorter, easier name</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>fifa <span class="ot">&lt;-</span> fifa_audience</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre name="Examining Data Structures"><code>Before we can analyze our data, we must understand its structure.  Try out the following functions (copy and paste into the Console).  For each, make a note that describes its action.  </code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#(what does View do?)</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(fifa)  </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#(what does head do?)</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fifa)  </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#(what does dim do?)</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(fifa)           </span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">#(what does names do?)</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(fifa)         </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Solution</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#View() opens up a new tab with a spreadsheet preview of the data to visually explore the data. It is commented out in the Rmarkdown/Quarto file because this is an interactive feature</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#View(fifa)  </span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#head() gives the first 6 (default number) rows of a data set</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fifa)  </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 6 × 5</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="do">##   country    confederation population_share tv_audience_share gdp_weighted_share</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;chr&gt;      &lt;chr&gt;                    &lt;dbl&gt;             &lt;dbl&gt;              &lt;dbl&gt;</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 United St… CONCACAF                   4.5               4.3               11.3</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 Japan      AFC                        1.9               4.9                9.1</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 China      AFC                       19.5              14.8                7.3</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 Germany    UEFA                       1.2               2.9                6.3</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 Brazil     CONMEBOL                   2.8               7.1                5.4</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="do">## 6 United Ki… UEFA                       0.9               2.1                4.2</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co">#dim() gives the number of rows and number of columns</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(fifa)           </span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 191   5</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="co">#names() gives the names of the columns/variables</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(fifa)   </span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "country"            "confederation"      "population_share"  </span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="do">## [4] "tv_audience_share"  "gdp_weighted_share"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre name="Codebooks"><code>Data are also only useful if we know what they measure!  The `fifa` data table is *tidy*; it doesn't have any helpful notes in the data itself.</code></pre>
+<p>Rather, information about the data is stored in a separate <em>codebook</em>. Codebooks can be stored in many ways (eg: Google docs, word docs, etc). Here the authors have made their codebook available in RStudio (under the original <code>fifa_audience</code> name). Check it out (run the following code in the console):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>?fifa_audience</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="a">
+<li>What does <code>population_share</code> measure?</li>
+<li>What are the units of <code>population_share</code>?</li>
+</ol>
+<p>Solution</p>
+<ol type="a">
+<li>Country’s share of global population</li>
+<li>Percentage between 0 and 100</li>
+</ol>
+<pre name="Examining a Single Variable"><code>Consider the following:</code></pre>
+<ol type="a">
+<li>We might want to access and focus on a single variable. To this end, we can use the <code>$</code> notation (see below). What are the values of <code>tv_audience_share</code>? Of <code>confederation</code>? Is it easy to figure out?</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>fifa<span class="sc">$</span>tv_audience_share</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>fifa<span class="sc">$</span>confederation</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Solution</p>
+<ol type="a">
+<li>The values of <code>tv_audience_share</code> are numerical values between 0 and 7.1. By scanning through the long list, it looks like the values of <code>confederation</code> are words (a string of alphabetical characters): OFC, CAF, AFC, UEFA, CONCACAF, CONMEBOL.</li>
+</ol>
+<p>It’s important to understand the format/class of each variable (quantitative, categorical, date, etc) in both its meaning and its structure within RStudio:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(fifa<span class="sc">$</span>tv_audience_share)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(fifa<span class="sc">$</span>confederation)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="a">
+<li>If a variable is categorical (in <code>factor</code> format), we can determine its <code>levels</code> / category labels. What are the value of <code>confederation</code>?</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(fifa<span class="sc">$</span>confederation) <span class="co">#it is in character format</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(<span class="fu">factor</span>(fifa<span class="sc">$</span>confederation)) <span class="co">#we can convert to factor format</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Solution</p>
+<ol start="2" type="a">
+<li>The values of <code>confederation</code> are words, also known as strings of characters in computing languages (indicated by the quotes around them): “AFC”, “CAF”, “CONCACAF”, “CONMEBOL”, “OFC”, “UEFA”.</li>
+</ol>
+</section>
+</section>
+<section id="r-markdownquarto-and-reproducible-research" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="r-markdownquarto-and-reproducible-research">R Markdown/Quarto and Reproducible Research</h2>
+<blockquote class="blockquote">
+<p><strong>Reproducible research</strong> is the idea that data analyses, and more generally, scientific claims, are published with their data and software code so that others may verify the findings and build upon them. - <a href="https://www.coursera.org/learn/reproducible-research">Reproducible Research, Coursera</a></p>
+</blockquote>
+<p>Useful Resources:</p>
+<ol type="1">
+<li><a href="http://rmarkdown.rstudio.com/authoring_quick_tour.html">R Markdown Quick Tour</a><br>
+</li>
+<li><a href="https://github.com/rstudio/cheatsheets/raw/main/rmarkdown-2.0.pdf">R Markdown Cheatsheet</a></li>
+<li><a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">R Markdown Reference Guide</a></li>
+<li><a href="https://quarto.org/docs/get-started/hello/rstudio.html">Quarto Get Started Guide</a></li>
+</ol>
+<p>Research often makes claims that are difficult to verify. A recent <a href="http://science.sciencemag.org/content/349/6251/aac4716">study of published psychology articles</a> found that less than half of published claims could be reproduced. One of the most common reasons claims cannot be reproduced is confusion about data analysis. It may be unclear exactly how data was prepared and analyzed, or there may be a mistake in the analysis.</p>
+<p>In this course we will use an innovative format called R Markdown that dramatically increases the transparency of data analysis. R Markdown interleaves data, R code, graphs, tables, and text, packaging them into an easily publishable format. Quarto is the update version of R Markdown that allows you to incorporate code from many programming languages and is more general than RStudio. You can choose to work in either format.</p>
+<p>To use R Markdown, you will write an R Markdown formatted file in RStudio and then ask RStudio to <strong>knit</strong> it into an HTML document (or occasionally a PDF or MS Word document). If you work in a Quarto document, you press the <strong>render</strong> button to turn it into an HTML document.</p>
+<pre name="Deduce the R Markdown Format"><code>Look at this [Sample RMarkdown](http://www.statpower.net/Content/310/R%20Stuff/SampleMarkdown.Rmd) and the [HTML webpage](http://www.statpower.net/Content/310/R%20Stuff/SampleMarkdown.html) it creates. Consider the following and discuss:
+    
+a) How are bullets, italics, and section headers represented in the R Markdown file?
+b) How does R code appear in the R Markdown file?
+c) In the HTML webpage, do you see the R code, the output of the R code, or both?</code></pre>
+<p>Solution</p>
+<pre data-collapse="TRUE"><code>Bullets are represented with * and +
+Italics are represented with * before and after a word or phrase
+Section headers are represented with #
+
+R code chunks are between 3 tick marks at the beginning and end; it is R code if there is an r in curly braces
+  
+If echo=FALSE in curly braces, the code is not shown. Otherwise, both code and output are shown by default.</code></pre>
+<p>Now take a look at the <a href="https://github.com/rstudio/cheatsheets/raw/main/rmarkdown-2.0.pdf">R Markdown cheatsheet</a>. Look up the R Markdown features from the previous question on the cheatsheet. There’s a great deal more information there.</p>
+</section>
+<section id="practice" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="practice">Practice</h2>
+<p>Complete the following. If you get stuck along the way, refer to the R Markdown cheatsheet linked above, search the web for answers, and/or ask for help!</p>
+<pre name="Your First R Markdown File"><code>Create a new R Markdown (or a Quarto document) about your favorite food.    
+
+a. Create a new file in RStudio (File -&gt; New File -&gt; R Markdown or Quarto Document) with a Title of `First_Markdown` [unclick the visual editor button]. Save it to a new folder on your Desktop called `COMP_STAT_112`; within that new folder, create another new folder called `Assignment_01`.  
+b. Make sure you can compile/render (Knit/Render) the Markdown/Quarto into a webpage (html file).  
+c. Add a new line between `title` and `output` that reads: `author: Your Name`.
+d. Delete everything from `## RMarkdown` or `## Quarto` and below. Create a new section by typing `## Favorite Food`.
+e. Write a very brief essay about your favorite food. Make sure to include:    
+  * A picture from the web    
+  * A bullet list    
+  * A numbered list  
+f. Compile (Knit/Render) the document into an html file [which appears in the folder `Assignment_01` you created] and make sure it looks like you want it to.</code></pre>
+<pre name="New Data!"><code>There's a data set named `comic_characters` in the `fivethirtyeightdata` package.</code></pre>
+<p>Install the package by running the following in the console:</p>
+<pre><code>install.packages('fivethirtyeightdata', repos = 'https://fivethirtyeightdata.github.io/drat/', type = 'source')</code></pre>
+<p>Check out the codebook (hint: use ?) to understand what these data measure.</p>
+<p>Add a second section to your RMarkdown file that you’ve created (with <code>##</code>), and then use code chunks and R commands to perform/answer the following tasks/questions:</p>
+<ol type="a">
+<li>Load the <code>comic_characters</code> data.<br>
+</li>
+<li>What are the units of observation? How many observations are there?<br>
+</li>
+<li>In a new code chunk, print out the first 12 rows of the data set.</li>
+<li>Get a list of all variable names.<br>
+</li>
+<li>What’s the class of the <code>date</code> variable?<br>
+</li>
+<li>List all of the unique entries in the <code>gsm</code> variable (no need to include NA).</li>
+<li>Compile the document into an html file.</li>
+</ol>
+</section>
+<section id="appendix-r-functions" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-r-functions">Appendix: R Functions</h2>
+<section id="r-as-a-calculator" class="level3">
+<h3 class="anchored" data-anchor-id="r-as-a-calculator">R as a calculator</h3>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Function/Operator</th>
+<th style="text-align: center;">Action</th>
+<th style="text-align: right;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>/</code></td>
+<td style="text-align: center;">Division</td>
+<td style="text-align: right;"><code>90/30</code></td>
+</tr>
+<tr class="even">
+<td><code>*</code></td>
+<td style="text-align: center;">Multiplication</td>
+<td style="text-align: right;"><code>2*5</code></td>
+</tr>
+<tr class="odd">
+<td><code>+</code></td>
+<td style="text-align: center;">Addition</td>
+<td style="text-align: right;"><code>1+1</code></td>
+</tr>
+<tr class="even">
+<td><code>-</code></td>
+<td style="text-align: center;">Subtraction</td>
+<td style="text-align: right;"><code>1-1</code></td>
+</tr>
+<tr class="odd">
+<td><code>^</code></td>
+<td style="text-align: center;">Exponent/Power to</td>
+<td style="text-align: right;"><code>3^2</code></td>
+</tr>
+<tr class="even">
+<td><code>sqrt(x)</code></td>
+<td style="text-align: center;">Square root</td>
+<td style="text-align: right;"><code>sqrt(25)</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="r-basics" class="level3">
+<h3 class="anchored" data-anchor-id="r-basics">R Basics</h3>
+<table class="table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 46%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function/Operator</th>
+<th style="text-align: center;">Action</th>
+<th style="text-align: right;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>install.packages('packagename')</code></td>
+<td style="text-align: center;">Download a R package (function, data, etc.) from repository</td>
+<td style="text-align: right;"><code>install.packages('fivethirtyeight')</code></td>
+</tr>
+<tr class="even">
+<td><code>library(packagename)</code></td>
+<td style="text-align: center;">Access a downloaded R package</td>
+<td style="text-align: right;"><code>library(fivethirtyeight)</code></td>
+</tr>
+<tr class="odd">
+<td><code>?function_object_name</code></td>
+<td style="text-align: center;">Opens the help/documentation for the function or object</td>
+<td style="text-align: right;"><code>?seq</code></td>
+</tr>
+<tr class="even">
+<td><code>rep(x, times, each)</code></td>
+<td style="text-align: center;">Repeat x a # times</td>
+<td style="text-align: right;"><code>rep(5,8)</code></td>
+</tr>
+<tr class="odd">
+<td><code>seq(from, to, by)</code></td>
+<td style="text-align: center;">Sequence generation</td>
+<td style="text-align: right;"><code>seq(0, 12, by = 2)</code></td>
+</tr>
+<tr class="even">
+<td><code>name &lt;- value_output</code></td>
+<td style="text-align: center;">Assign value or output to a name</td>
+<td style="text-align: right;"><code>squared_3 &lt;- 3^2</code></td>
+</tr>
+<tr class="odd">
+<td><code>View(x)</code></td>
+<td style="text-align: center;">Open spreadsheet viewer of dataset</td>
+<td style="text-align: right;"><code>View(fifa_audience)</code></td>
+</tr>
+<tr class="even">
+<td><code>head(x)</code></td>
+<td style="text-align: center;">Print the first 6 rows of a dataset</td>
+<td style="text-align: right;"><code>head(fifa_audience)</code></td>
+</tr>
+<tr class="odd">
+<td><code>dim(x)</code></td>
+<td style="text-align: center;">Print the dimensions (number of rows and columns) of a dataset</td>
+<td style="text-align: right;"><code>dim(fifa_audience)</code></td>
+</tr>
+<tr class="even">
+<td><code>names(x)</code></td>
+<td style="text-align: center;">Print the names of the variables in a dataset</td>
+<td style="text-align: right;"><code>names(fifa_audience)</code></td>
+</tr>
+<tr class="odd">
+<td><code>$</code></td>
+<td style="text-align: center;">Used to access one variable in a data set based on its name</td>
+<td style="text-align: right;"><code>fifa_audience$confederation</code></td>
+</tr>
+<tr class="even">
+<td><code>class(x)</code></td>
+<td style="text-align: center;">Print the class types argument or input</td>
+<td style="text-align: right;"><code>class(fifa_audience$confederation)</code></td>
+</tr>
+<tr class="odd">
+<td><code>factor(x)</code></td>
+<td style="text-align: center;">Converts the argument or input to a factor class type (categorical variable)</td>
+<td style="text-align: right;"><code>factor(fifa_audience$confederation)</code></td>
+</tr>
+<tr class="even">
+<td><code>levels(x)</code></td>
+<td style="text-align: center;">Prints the unique categories of a factor</td>
+<td style="text-align: right;"><code>levels(factor(fifa_audience$confederation))</code></td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
