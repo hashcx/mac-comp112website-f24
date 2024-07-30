@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>COMP/STAT 112: Introduction to Data Science - P1: Intro to R, RStudio, and R Markdown</title>
+<title>COMP/STAT 112: Introduction to Data Science - 2&nbsp; P1: Intro to R, RStudio, and R Markdown</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,6 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../index.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -114,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../src/01-RStudio_Intro.html">Src</a></li><li class="breadcrumb-item"><a href="../src/01-RStudio_Intro.html">P1: Intro to R, RStudio, and R Markdown</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../src/01-RStudio_Intro.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">P1: Intro to R, RStudio, and R Markdown</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -130,6 +131,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">COMP/STAT 112: Introduction to Data Science</a> 
+        <div class="sidebar-tools-main">
+    <a href="../COMP-STAT-112--Introduction-to-Data-Science.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -139,131 +143,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Src</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">index.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../src/01-RStudio_Intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">P1: Intro to R, RStudio, and R Markdown</span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">P1: Intro to R, RStudio, and R Markdown</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../src/02-Intro_Data_Viz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">(PART) Visualization</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../src/03-Effective_Viz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Effective Visualizations</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../src/04-Bivariate_Viz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">options(htmltools.dir.version = FALSE)</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../src/05-Multivariate_Viz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Multivariate Visualizations</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../src/07-Six_Main_Verbs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">(PART) Data Wrangling</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../src/08-Reshaping_Data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reshaping Data</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../src/09-Join.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Joining Two Data Frames</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../src/10-Factors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Categorical Variables as Factors</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../src/11-Mini_Project.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mini-Project</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../src/12-Data_Import.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">(PART) Data Acquisition &amp; Cleaning</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../src/13-EDA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exploratory Data Analysis</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../src/14-Regex.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Regular Expressions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../src/15-Data_Scraping.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">(PART) Additional Topics</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../src/16-API.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Public Web APIs</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../src/17-SQL.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SQL</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../src/18-Text_Analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Text Analysis</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../src/19-Adv_Viz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Advanced Visualization</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../src/21-Prez_Tools.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Presentation Tools</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -271,24 +162,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link active" data-scroll-target="#learning-goals">Learning Goals</a></li>
-  <li><a href="#getting-started-in-rstudio" id="toc-getting-started-in-rstudio" class="nav-link" data-scroll-target="#getting-started-in-rstudio">Getting Started in RStudio</a>
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link active" data-scroll-target="#learning-goals"><span class="header-section-number">2.1</span> Learning Goals</a></li>
+  <li><a href="#getting-started-in-rstudio" id="toc-getting-started-in-rstudio" class="nav-link" data-scroll-target="#getting-started-in-rstudio"><span class="header-section-number">2.2</span> Getting Started in RStudio</a>
   <ul class="collapse">
-  <li><a href="#download-r-rstudio" id="toc-download-r-rstudio" class="nav-link" data-scroll-target="#download-r-rstudio">Download R &amp; RStudio</a></li>
-  <li><a href="#a-quick-tour-of-rstudio" id="toc-a-quick-tour-of-rstudio" class="nav-link" data-scroll-target="#a-quick-tour-of-rstudio">A quick tour of RStudio</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#tidy-data" id="toc-tidy-data" class="nav-link" data-scroll-target="#tidy-data">Tidy Data</a></li>
-  <li><a href="#data-basics-in-rstudio" id="toc-data-basics-in-rstudio" class="nav-link" data-scroll-target="#data-basics-in-rstudio">Data Basics in RStudio</a></li>
+  <li><a href="#download-r-rstudio" id="toc-download-r-rstudio" class="nav-link" data-scroll-target="#download-r-rstudio"><span class="header-section-number">2.2.1</span> Download R &amp; RStudio</a></li>
+  <li><a href="#a-quick-tour-of-rstudio" id="toc-a-quick-tour-of-rstudio" class="nav-link" data-scroll-target="#a-quick-tour-of-rstudio"><span class="header-section-number">2.2.2</span> A quick tour of RStudio</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">2.2.3</span> Data</a></li>
+  <li><a href="#tidy-data" id="toc-tidy-data" class="nav-link" data-scroll-target="#tidy-data"><span class="header-section-number">2.2.4</span> Tidy Data</a></li>
+  <li><a href="#data-basics-in-rstudio" id="toc-data-basics-in-rstudio" class="nav-link" data-scroll-target="#data-basics-in-rstudio"><span class="header-section-number">2.2.5</span> Data Basics in RStudio</a></li>
   </ul></li>
   <li><a href="#r-markdownquarto-and-reproducible-research" id="toc-r-markdownquarto-and-reproducible-research" class="nav-link" data-scroll-target="#r-markdownquarto-and-reproducible-research">R Markdown/Quarto and Reproducible Research</a></li>
   <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
-  <li><a href="#appendix-r-functions" id="toc-appendix-r-functions" class="nav-link" data-scroll-target="#appendix-r-functions">Appendix: R Functions</a>
+  <li><a href="#appendix-r-functions" id="toc-appendix-r-functions" class="nav-link" data-scroll-target="#appendix-r-functions"><span class="header-section-number">2.3</span> Appendix: R Functions</a>
   <ul class="collapse">
-  <li><a href="#r-as-a-calculator" id="toc-r-as-a-calculator" class="nav-link" data-scroll-target="#r-as-a-calculator">R as a calculator</a></li>
-  <li><a href="#r-basics" id="toc-r-basics" class="nav-link" data-scroll-target="#r-basics">R Basics</a></li>
+  <li><a href="#r-as-a-calculator" id="toc-r-as-a-calculator" class="nav-link" data-scroll-target="#r-as-a-calculator"><span class="header-section-number">2.3.1</span> R as a calculator</a></li>
+  <li><a href="#r-basics" id="toc-r-basics" class="nav-link" data-scroll-target="#r-basics"><span class="header-section-number">2.3.2</span> R Basics</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -296,9 +187,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../src/01-RStudio_Intro.html">Src</a></li><li class="breadcrumb-item"><a href="../src/01-RStudio_Intro.html">P1: Intro to R, RStudio, and R Markdown</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">P1: Intro to R, RStudio, and R Markdown</h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">P1: Intro to R, RStudio, and R Markdown</span></h1>
 </div>
 
 
@@ -315,8 +206,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="learning-goals" class="level2">
-<h2 class="anchored" data-anchor-id="learning-goals">Learning Goals</h2>
+<section id="learning-goals" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="learning-goals"><span class="header-section-number">2.1</span> Learning Goals</h2>
 <ul>
 <li>Download and install the necessary tools (R, RStudio)</li>
 <li>Develop comfort in navigating the tools in RStudio</li>
@@ -325,8 +216,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Use R code: as a calculator and to explore tidy data</li>
 </ul>
 </section>
-<section id="getting-started-in-rstudio" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started-in-rstudio">Getting Started in RStudio</h2>
+<section id="getting-started-in-rstudio" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="getting-started-in-rstudio"><span class="header-section-number">2.2</span> Getting Started in RStudio</h2>
 <p>As you might guess from the name, “Data Science” requires <em>data</em>. Working with modern (large, messy) data sets requires statistical software. We’ll exclusively use <strong>RStudio</strong>. Why?</p>
 <ul>
 <li>it’s free<br>
@@ -338,8 +229,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 <li>it can be used to create <em>reproducible</em> and lovely documents (In fact, the course materials that you’re currently reading were constructed entirely within RStudio!)</li>
 </ul>
-<section id="download-r-rstudio" class="level3">
-<h3 class="anchored" data-anchor-id="download-r-rstudio">Download R &amp; RStudio</h3>
+<section id="download-r-rstudio" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="download-r-rstudio"><span class="header-section-number">2.2.1</span> Download R &amp; RStudio</h3>
 <p>To get started, take the following two steps <em>in the given order</em>. Even if you already have R/RStudio, make sure to update to the most recent versions.</p>
 <ol type="1">
 <li>Download and install the R statistical software at <a href="https://mirror.las.iastate.edu/CRAN/" class="uri">https://mirror.las.iastate.edu/CRAN/</a><br>
@@ -357,8 +248,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>If you are having issues with downloading, log on to <a href="https://rstudio.macalester.edu/" class="uri">https://rstudio.macalester.edu/</a> (use Mac credentials) to use the RStudio server.</p>
 <p>What’s the difference between R and RStudio? Mainly, RStudio requires R – thus it does everything R does <em>and more</em>. We will be using RStudio exclusively.</p>
 </section>
-<section id="a-quick-tour-of-rstudio" class="level3">
-<h3 class="anchored" data-anchor-id="a-quick-tour-of-rstudio">A quick tour of RStudio</h3>
+<section id="a-quick-tour-of-rstudio" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="a-quick-tour-of-rstudio"><span class="header-section-number">2.2.2</span> A quick tour of RStudio</h3>
 <p>Open RStudio! You should see four panes, each serving a different purpose:</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -368,7 +259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <img src="../images/rstudio-panes-labeled.jpeg" class="img-fluid figure-img" width="2481">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-main-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: RStudio Interface
+Figure&nbsp;2.1: RStudio Interface
 </figcaption>
 </figure>
 </div>
@@ -426,8 +317,8 @@ square_3
 square_3 + 2</code></pre>
 <p>:::</p>
 </section>
-<section id="data" class="level3">
-<h3 class="anchored" data-anchor-id="data">Data</h3>
+<section id="data" class="level3" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="data"><span class="header-section-number">2.2.3</span> Data</h3>
 <p>Not only does “Data Science” require statistical software, it requires <em>DATA</em>! Consider the Google definition:</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -473,12 +364,12 @@ square_3 + 2</code></pre>
 </div>
 <p>This isn’t as restrictive as it seems. We can convert the above signals: photos, videos, and text to a data table format!</p>
 </section>
-<section id="tidy-data" class="level3">
-<h3 class="anchored" data-anchor-id="tidy-data">Tidy Data</h3>
+<section id="tidy-data" class="level3" data-number="2.2.4">
+<h3 data-number="2.2.4" class="anchored" data-anchor-id="tidy-data"><span class="header-section-number">2.2.4</span> Tidy Data</h3>
 <p><strong>Example:</strong> After a scandal among FIFA officials, fivethirtyeight.com posted an analysis of FIFA viewership, <a href="https://fivethirtyeight.com/features/how-to-break-fifa/">“How to Break FIFA”</a>. Here’s a snapshot of the data used in this article:</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 18%">
 <col style="width: 16%">
@@ -633,8 +524,8 @@ square_3 + 2</code></pre>
 <li>The first column does not have a row name. It should be continent. Additionally, Bahrain needs a value for the continent.The column names ‘1952’, ‘1957’ and ‘1962’ are values not variables. The table should be ‘pivoted’ (more information on this coming soon!), so that there is an additional column named ‘year’ and each country has three observations (rows) associated with it (one for each year).</li>
 </ol>
 </section>
-<section id="data-basics-in-rstudio" class="level3">
-<h3 class="anchored" data-anchor-id="data-basics-in-rstudio">Data Basics in RStudio</h3>
+<section id="data-basics-in-rstudio" class="level3" data-number="2.2.5">
+<h3 data-number="2.2.5" class="anchored" data-anchor-id="data-basics-in-rstudio"><span class="header-section-number">2.2.5</span> Data Basics in RStudio</h3>
 <p>For now, we’ll focus on <em>tidy</em> data. In a couple of weeks, you’ll learn how to “clean data” and turn untidy data into tidy data.</p>
 <pre name="Importing Package Data"><code>The first step to working with data in RStudio is getting it in there!  How we do this depends on its format (eg: Excel spreadsheet, csv file, txt file) and storage locations (eg: online, within Wiki, desktop).  
 
@@ -800,11 +691,11 @@ f. Compile (Knit/Render) the document into an html file [which appears in the fo
 <li>Compile the document into an html file.</li>
 </ol>
 </section>
-<section id="appendix-r-functions" class="level2">
-<h2 class="anchored" data-anchor-id="appendix-r-functions">Appendix: R Functions</h2>
-<section id="r-as-a-calculator" class="level3">
-<h3 class="anchored" data-anchor-id="r-as-a-calculator">R as a calculator</h3>
-<table class="table">
+<section id="appendix-r-functions" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="appendix-r-functions"><span class="header-section-number">2.3</span> Appendix: R Functions</h2>
+<section id="r-as-a-calculator" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="r-as-a-calculator"><span class="header-section-number">2.3.1</span> R as a calculator</h3>
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Function/Operator</th>
@@ -846,9 +737,9 @@ f. Compile (Knit/Render) the document into an html file [which appears in the fo
 </tbody>
 </table>
 </section>
-<section id="r-basics" class="level3">
-<h3 class="anchored" data-anchor-id="r-basics">R Basics</h3>
-<table class="table">
+<section id="r-basics" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="r-basics"><span class="header-section-number">2.3.2</span> R Basics</h3>
+<table class="caption-top table">
 <colgroup>
 <col style="width: 24%">
 <col style="width: 46%">
@@ -1349,6 +1240,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../index.html" class="pagination-link" aria-label="index.html">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">index.html</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

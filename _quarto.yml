@@ -1,16 +1,20 @@
 project:
-  type: website
+  type: book
+  resources:
+    - src/
   output-dir: docs
 
-website:
+book:
   title: "COMP/STAT 112: Introduction to Data Science"
   # navbar:
   #   left:
   #     - href: index.qmd
   #       text: Home
   #     - about.qmd
-  sidebar: 
-    contents: auto
+  downloads: [pdf]
+  chapters:
+    - index.qmd
+    - src/01-RStudio_Intro.qmd
 
 format:
   html:
