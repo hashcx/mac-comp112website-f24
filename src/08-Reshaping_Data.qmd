@@ -6,6 +6,7 @@ library(lubridate)
 library(ggmap)
 library(fivethirtyeight)
 library(babynames)
+library(here)
 ```
 
 # Reshaping Data
@@ -69,7 +70,7 @@ The inputs for this function are:
 - `values_fill = 0` specifies that if there are, e.g., no females named Aadam, we should include a zero in the corresponding entry of the wide format table
 
 ```{r echo=FALSE,fig.cap="Illustration of pivot_wider from tidyr cheatsheet." ,fig.alt="Illustration of pivot_wider in which values in a column get spread out over multiple columns (from tidyr cheatsheet)."}
-knitr::include_graphics("images/pivot_wider.png")
+knitr::include_graphics(here("images", "pivot_wider.png"))
 ```
 
 
@@ -106,7 +107,7 @@ knitr::kable(
 Next, let's filter these names to keep only those with a ratio of 0.5 or greater (no more than 2 to 1), and then switch back to long format. We can do this with the following **`pivot_longer()`** operation. It gathers the columns listed c(`F`,`M`) under the `cols` argument into a single column whose name is given by the `names_to` argument ("sex"), and includes the values in a column called `total`, which is the input to the `values_to` argument.
 
 ```{r echo=FALSE,fig.cap="Illustration of pivot_longer from tidyr cheatsheet.",fig.alt="Illustration of pivot_longer in which values in a row get stack on top of each other in a column (from tidyr cheatsheet)."}
-knitr::include_graphics("images/pivot_longer.png")
+knitr::include_graphics(here("images", "pivot_longer.png"))
 ```
 
 ```{r}
@@ -164,7 +165,7 @@ Daily <- Daily %>%
 ```
 
 ```{r eval = TRUE,echo=FALSE}
-DailyGroups <- read_csv("data/daily-group-assignment.csv")
+DailyGroups <- read_csv(here("data", "daily-group-assignment.csv"))
 Daily <- Daily %>%
   inner_join(DailyGroups, by = c("group" = "group"))
 ```

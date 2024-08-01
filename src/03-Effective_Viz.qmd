@@ -1,3 +1,7 @@
+---
+title: Effective Visualizations
+---
+
 ```{r 03_setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, error = TRUE)
 library(tufte)
@@ -9,9 +13,8 @@ library(fivethirtyeight)
 library(babynames) 
 library(readr)
 knitr::opts_chunk$set(tidy = FALSE, message=FALSE, cache.extra = packageVersion('tufte'))
+library(here)
 ```
-
-# Effective Visualizations
 
 ## Learning Goals {-}
 
@@ -54,7 +57,7 @@ For your assigned graphics or sets of graphics, identify the following:
 
 
 ```{r,echo=FALSE, out.width = '50%',fig.show='hold',fig.cap="Source: http://viz.wtf/"}
-knitr::include_graphics("images/badviz3.png")
+knitr::include_graphics(here("images", "badviz3.png"))
 ```
 
 \
@@ -62,7 +65,7 @@ knitr::include_graphics("images/badviz3.png")
 \
 
 ```{r,echo=FALSE, out.width = '50%',fig.show='hold',fig.cap="Source: N. Yau, *Visualize This*, 2011, p. 223-225."}
-knitr::include_graphics("images/trilogies.gif")
+knitr::include_graphics(here("images", "trilogies.png"))
 ```
 
 \
@@ -70,7 +73,7 @@ knitr::include_graphics("images/trilogies.gif")
 \
 
 ```{r,echo=FALSE, out.width = '60%',fig.show='hold',fig.cap="Source: N. Yau, *Visualize This*, 2011, p. 242."}
-knitr::include_graphics("images/chernoff.png")
+knitr::include_graphics(here("images", "chernoff.png"))
 ```
 
 \
@@ -78,7 +81,7 @@ knitr::include_graphics("images/chernoff.png")
 \
 
 ```{r,echo=FALSE, out.width = '70%',fig.show='hold',fig.cap="Gun deaths."}
-knitr::include_graphics("images/badviz2.png")
+knitr::include_graphics(here("images", "badviz2.png"))
 ```
 
 \
@@ -86,7 +89,7 @@ knitr::include_graphics("images/badviz2.png")
 \
 
 ```{r,echo=FALSE, out.width = '80%',fig.show='hold',fig.cap="Source: N. Yau, *Visualize This*, 2011, p. 150."}
-knitr::include_graphics("images/obama1.png")
+knitr::include_graphics(here("images", "obama1.png"))
 ```
 
 \
@@ -94,7 +97,7 @@ knitr::include_graphics("images/obama1.png")
 \
 
 ```{r,echo=FALSE, out.width = '80%',fig.show='hold',fig.cap="Source: C. N. Knaflic, *Storytelling with Data*, 2015, p. 142."}
-knitr::include_graphics("images/breakup.png")
+knitr::include_graphics(here("images", "breakup.png"))
 ```
 
 \
@@ -102,7 +105,7 @@ knitr::include_graphics("images/breakup.png")
 \
 
 ```{r,echo=FALSE, out.width = '60%',fig.show='hold',fig.cap="Source: S. Few, *Now You See It*, 2009, p. 45."}
-knitr::include_graphics("images/heatmap.png")
+knitr::include_graphics(here("images", "heatmap.png"))
 ```
 
 \
@@ -110,7 +113,7 @@ knitr::include_graphics("images/heatmap.png")
 \
 
 ```{r,echo=FALSE, out.width = '60%',fig.show='hold',fig.cap="Climate change."}
-knitr::include_graphics("images/badviz1.png")
+knitr::include_graphics(here("images", "badviz1.png"))
 ```
 
 \
@@ -118,7 +121,7 @@ knitr::include_graphics("images/badviz1.png")
 \
 
 ```{r,echo=FALSE, out.width = '50%',fig.show='hold',fig.cap="Source: C. N. Knaflic, *Storytelling with Data*, 2015, p. 48."}
-knitr::include_graphics("images/slopegraph1.png")
+knitr::include_graphics(here("images", "slopegraph1.png"))
 ```
 
 \
@@ -143,7 +146,7 @@ ggplot(data = diamonds) +
 \
 
 ```{r,echo=FALSE, out.width = '100%',fig.show='hold',fig.cap="Source: S. Few, *Now You See It*, 2009, p. 37."}
-knitr::include_graphics("images/piechart.png")
+knitr::include_graphics(here("images", "piechart.png"))
 ```
 
 \
@@ -151,7 +154,7 @@ knitr::include_graphics("images/piechart.png")
 \
 
 ```{r,echo=FALSE, out.width = '70%',fig.show='hold',fig.cap="Source: N. Yau, *Visualize This*, 2011, p. 249."}
-knitr::include_graphics("images/Nightingale.png")
+knitr::include_graphics(here("images", "Nightingale.png"))
 ```
 
 \
@@ -159,7 +162,7 @@ knitr::include_graphics("images/Nightingale.png")
 \
 
 ```{r,echo=FALSE, out.width = '80%',fig.show='hold',fig.cap="Source: S. Few, *Now You See It*, 2009, p. 61."}
-knitr::include_graphics("images/compensation.png")
+knitr::include_graphics(here("images", "compensation.png"))
 ```
 
 \
@@ -167,7 +170,7 @@ knitr::include_graphics("images/compensation.png")
 \
 
 ```{r,echo=FALSE, out.width = '100%',fig.show='hold',fig.cap="Source: C. N. Knaflic, *Storytelling with Data*, 2015, p. 68."}
-knitr::include_graphics("images/employees.png")
+knitr::include_graphics(here("images", "employees.png"))
 ```
 
 \
@@ -175,7 +178,7 @@ knitr::include_graphics("images/employees.png")
 \
 
 ```{r,echo=FALSE, out.width = '70%',fig.show='hold',fig.cap="Source: C. N. Knaflic, *Storytelling with Data*, 2015, p. 81."}
-knitr::include_graphics("images/clutter.png")
+knitr::include_graphics(here("images", "clutter.png"))
 ```
 
 \
@@ -183,7 +186,7 @@ knitr::include_graphics("images/clutter.png")
 \
 
 ```{r,echo=FALSE, out.width = '60%',fig.show='hold',fig.cap="Source: http://viz.wtf/"}
-knitr::include_graphics("images/badviz4.png")
+knitr::include_graphics(here("images", "badviz4.png"))
 ```
 
 \
@@ -191,7 +194,7 @@ knitr::include_graphics("images/badviz4.png")
 \
 
 ```{r,echo=FALSE, out.width = '85%',fig.show='hold',fig.cap="Source: A. Cairo, *The Functional Art*, 2013, p. 340."}
-knitr::include_graphics("images/plagiarism.png")
+knitr::include_graphics(here("images", "plagiarism.png"))
 ```
 
 \
@@ -199,7 +202,7 @@ knitr::include_graphics("images/plagiarism.png")
 \
 
 ```{r,echo=FALSE, out.width = '70%',fig.show='hold',fig.cap="Source: N. Yau, *Visualize This*, 2011, p. 220."}
-knitr::include_graphics("images/tv-size-by-year1.png")
+knitr::include_graphics(here("images", "tv-size-by-year1.png"))
 ```
 
 \
@@ -241,7 +244,7 @@ To add the alt text to your the HTML created from knitting the Rmd, you can incl
 This [Chromatic Vision Simulator](https://asada.website/webCVS/) can give you a sense of how this could impact your perception of colors (see image below). You could also upload a visualization to this simulator to see how well your chosen color palette works.
 
 ```{r fig.alt='Four images of the painting of Wheatfield with a Reaper by Vincent van Gogh under different types of color blindness. Source: https://asada.website/webCVS/', echo=FALSE}
-knitr::include_graphics("images/colorblind.jpg")
+knitr::include_graphics(here("images", "colorblind.jpg"))
 ```
 
 Try to use a color-blind friendly / safe palette whenever possible. One easy way to do this is to include `+ scale_fill_viridis_d()` or `+ scale_color_viridis_d()` when you are filling or coloring by a discrete or categorical variable and `+ scale_fill_viridis_c()` or `+ scale_color_viridis_c()` when you are filling or coloring by a continuous or quantitative variable. There are many other color-blind friendly palettes in R; you can check out other resources [here](https://cran.r-project.org/web/packages/colorBlindness/vignettes/colorBlindness.html). 
@@ -314,7 +317,7 @@ Here are some facts to keep in mind about visual perception from [Now You See It
 1. Visual perception is selective, and our attention is often drawn to constrasts from the norm.
 
 ```{r,echo=FALSE, out.width = '100%',fig.fullwidth=TRUE,fig.cap="Our attention is drawn to contrasts to the norm. What stands out in this example image?, which is originally from C. Ware, *Information Visualization: Perception for Design*, 2004? Source: S. Few, *Now You See It*, 2009, p. 33.",fig.alt="Black patterns on white background demonstrating visual perpection is drawn toward contrast. Originally from C. Ware, *Information Visualization: Perception for Design*, 2004? Source: S. Few, *Now You See It*, 2009, p. 33."}
-knitr::include_graphics("images/contrast.png")
+knitr::include_graphics(here("images", "contrast.png"))
 ```
 
 > **Implication**: We should design visualizations so that the features we want to highlight stand out in contrast from those that are not worth the audience's attention.
@@ -322,7 +325,7 @@ knitr::include_graphics("images/contrast.png")
 2. Our eyes are drawn to familiar patterns. We see what we know and expect.
 
 ```{r,echo=FALSE, out.width = '90%',fig.fullwidth=TRUE,fig.cap="Do you see anything embedded in this rose image from coolbubble.com? Source: S. Few, *Now You See It*, 2009, p. 34.",fig.alt="Rose with an embedded shadow of a dophin demonstraing that visual perpection focuses on familiar patterns. From coolbubble.com. Source: S. Few, *Now You See It*, 2009, p. 34."}
-knitr::include_graphics("images/rose1.png")
+knitr::include_graphics(here("images", "rose1.png"))
 ```
 
 > **Implication**: Visualizations work best when they display information as patterns that familiar and easy to spot.
@@ -338,7 +341,7 @@ The Gestalt principles (more info [here](https://en.wikipedia.org/wiki/Principle
 In a design setting, they help us understand how to incorporate **preattentive features** into visualizations. The figure below shows some preattentive features, all of which are processed prior to conscious attention ("at a glance") and can help the reader focus on relevant information in a visualization.
 
 ```{r,echo=FALSE, out.width = '100%',fig.fullwidth=TRUE,fig.cap="Preattentive features based on the Gestalt principles. Source: I. Meirelles, *Design for Information*, 2013, p. 23.",fig.alt="Visual examples of preattentive features based on the Gestalt principles. Source: I. Meirelles, *Design for Information*, 2013, p. 23."}
-knitr::include_graphics("images/gestalt.png")
+knitr::include_graphics(here("images", "gestalt.png"))
 ```
 
 **Other design tips** from [Visualize This](https://www.amazon.com/Visualize-This-FlowingData-Visualization-Statistics/dp/0470944889/) and [Storytelling with Data](https://www.amazon.com/Storytelling-Data-Visualization-Business-Professionals/dp/1119002257):

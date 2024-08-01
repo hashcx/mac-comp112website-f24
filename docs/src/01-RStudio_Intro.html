@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.555">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>COMP/STAT 112: Introduction to Data Science - 2&nbsp; P1: Intro to R, RStudio, and R Markdown</title>
+<title>COMP/STAT 112: Introduction to Data Science - 1&nbsp; Intro to R, RStudio, and R Markdown</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,7 +53,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
@@ -64,6 +60,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../src/02-Intro_Data_Viz.html" rel="next">
 <link href="../index.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -73,8 +70,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -100,39 +96,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-
-<link rel="stylesheet" href="../styles/styles.css">
+}</script><link rel="stylesheet" href="../styles/styles.css">
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../src/01-RStudio_Intro.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">P1: Intro to R, RStudio, and R Markdown</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../src/01-RStudio_Intro.html">Foundation</a></li><li class="breadcrumb-item"><a href="../src/01-RStudio_Intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro to R, RStudio, and R Markdown</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">COMP/STAT 112: Introduction to Data Science</a> 
         <div class="sidebar-tools-main">
     <a href="../COMP-STAT-112--Introduction-to-Data-Science.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
 </div>
     </div>
       </div>
@@ -143,53 +134,105 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">index.html</span></span></a>
+ <span class="menu-text">Welcome</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Foundation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../src/01-RStudio_Intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">P1: Intro to R, RStudio, and R Markdown</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro to R, RStudio, and R Markdown</span></span></a>
   </div>
 </li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Visualization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/02-Intro_Data_Viz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Intro to Data Visualization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/03-Effective_Viz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Effective Visualizations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/04-Bivariate_Viz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Bivariate Visualizations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/05-Multivariate_Viz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Multivariate Visualizations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/06-Spatial_Viz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Spatial Visualization</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link active" data-scroll-target="#learning-goals"><span class="header-section-number">2.1</span> Learning Goals</a></li>
-  <li><a href="#getting-started-in-rstudio" id="toc-getting-started-in-rstudio" class="nav-link" data-scroll-target="#getting-started-in-rstudio"><span class="header-section-number">2.2</span> Getting Started in RStudio</a>
+<li><a href="#learning-goals" id="toc-learning-goals" class="nav-link active" data-scroll-target="#learning-goals"><span class="header-section-number">1.1</span> Learning Goals</a></li>
+  <li>
+<a href="#getting-started-in-rstudio" id="toc-getting-started-in-rstudio" class="nav-link" data-scroll-target="#getting-started-in-rstudio"><span class="header-section-number">1.2</span> Getting Started in RStudio</a>
   <ul class="collapse">
-  <li><a href="#download-r-rstudio" id="toc-download-r-rstudio" class="nav-link" data-scroll-target="#download-r-rstudio"><span class="header-section-number">2.2.1</span> Download R &amp; RStudio</a></li>
-  <li><a href="#a-quick-tour-of-rstudio" id="toc-a-quick-tour-of-rstudio" class="nav-link" data-scroll-target="#a-quick-tour-of-rstudio"><span class="header-section-number">2.2.2</span> A quick tour of RStudio</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">2.2.3</span> Data</a></li>
-  <li><a href="#tidy-data" id="toc-tidy-data" class="nav-link" data-scroll-target="#tidy-data"><span class="header-section-number">2.2.4</span> Tidy Data</a></li>
-  <li><a href="#data-basics-in-rstudio" id="toc-data-basics-in-rstudio" class="nav-link" data-scroll-target="#data-basics-in-rstudio"><span class="header-section-number">2.2.5</span> Data Basics in RStudio</a></li>
-  </ul></li>
-  <li><a href="#r-markdownquarto-and-reproducible-research" id="toc-r-markdownquarto-and-reproducible-research" class="nav-link" data-scroll-target="#r-markdownquarto-and-reproducible-research">R Markdown/Quarto and Reproducible Research</a></li>
-  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
-  <li><a href="#appendix-r-functions" id="toc-appendix-r-functions" class="nav-link" data-scroll-target="#appendix-r-functions"><span class="header-section-number">2.3</span> Appendix: R Functions</a>
-  <ul class="collapse">
-  <li><a href="#r-as-a-calculator" id="toc-r-as-a-calculator" class="nav-link" data-scroll-target="#r-as-a-calculator"><span class="header-section-number">2.3.1</span> R as a calculator</a></li>
-  <li><a href="#r-basics" id="toc-r-basics" class="nav-link" data-scroll-target="#r-basics"><span class="header-section-number">2.3.2</span> R Basics</a></li>
-  </ul></li>
+<li><a href="#download-r-rstudio" id="toc-download-r-rstudio" class="nav-link" data-scroll-target="#download-r-rstudio"><span class="header-section-number">1.2.1</span> Download R &amp; RStudio</a></li>
+  <li><a href="#a-quick-tour-of-rstudio" id="toc-a-quick-tour-of-rstudio" class="nav-link" data-scroll-target="#a-quick-tour-of-rstudio"><span class="header-section-number">1.2.2</span> A quick tour of RStudio</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">1.2.3</span> Data</a></li>
+  <li><a href="#tidy-data" id="toc-tidy-data" class="nav-link" data-scroll-target="#tidy-data"><span class="header-section-number">1.2.4</span> Tidy Data</a></li>
+  <li><a href="#data-basics-in-rstudio" id="toc-data-basics-in-rstudio" class="nav-link" data-scroll-target="#data-basics-in-rstudio"><span class="header-section-number">1.2.5</span> Data Basics in RStudio</a></li>
   </ul>
-</nav>
+</li>
+  <li><a href="#r-markdownquarto-and-reproducible-research" id="toc-r-markdownquarto-and-reproducible-research" class="nav-link" data-scroll-target="#r-markdownquarto-and-reproducible-research"><span class="header-section-number">1.3</span> R Markdown/Quarto and Reproducible Research</a></li>
+  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice"><span class="header-section-number">1.4</span> Practice</a></li>
+  <li>
+<a href="#appendix-r-functions" id="toc-appendix-r-functions" class="nav-link" data-scroll-target="#appendix-r-functions"><span class="header-section-number">1.5</span> Appendix: R Functions</a>
+  <ul class="collapse">
+<li><a href="#r-as-a-calculator" id="toc-r-as-a-calculator" class="nav-link" data-scroll-target="#r-as-a-calculator"><span class="header-section-number">1.5.1</span> R as a calculator</a></li>
+  <li><a href="#r-basics" id="toc-r-basics" class="nav-link" data-scroll-target="#r-basics"><span class="header-section-number">1.5.2</span> R Basics</a></li>
+  </ul>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">P1: Intro to R, RStudio, and R Markdown</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../src/01-RStudio_Intro.html">Foundation</a></li><li class="breadcrumb-item"><a href="../src/01-RStudio_Intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro to R, RStudio, and R Markdown</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro to R, RStudio, and R Markdown</span>
+</h1>
 </div>
 
 
@@ -203,21 +246,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header>
-
-
-<section id="learning-goals" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="learning-goals"><span class="header-section-number">2.1</span> Learning Goals</h2>
+</header><section id="learning-goals" class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="learning-goals">
+<span class="header-section-number">1.1</span> Learning Goals</h2>
 <ul>
 <li>Download and install the necessary tools (R, RStudio)</li>
 <li>Develop comfort in navigating the tools in RStudio</li>
 <li>Develop comfort in writing and knitting a R Markdown (or a new Quarto) file</li>
 <li>Identify the characteristics of tidy data</li>
 <li>Use R code: as a calculator and to explore tidy data</li>
-</ul>
-</section>
-<section id="getting-started-in-rstudio" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="getting-started-in-rstudio"><span class="header-section-number">2.2</span> Getting Started in RStudio</h2>
+</ul></section><section id="getting-started-in-rstudio" class="level2" data-number="1.2"><h2 data-number="1.2" class="anchored" data-anchor-id="getting-started-in-rstudio">
+<span class="header-section-number">1.2</span> Getting Started in RStudio</h2>
 <p>As you might guess from the name, “Data Science” requires <em>data</em>. Working with modern (large, messy) data sets requires statistical software. We’ll exclusively use <strong>RStudio</strong>. Why?</p>
 <ul>
 <li>it’s free<br>
@@ -229,8 +267,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 <li>it can be used to create <em>reproducible</em> and lovely documents (In fact, the course materials that you’re currently reading were constructed entirely within RStudio!)</li>
 </ul>
-<section id="download-r-rstudio" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="download-r-rstudio"><span class="header-section-number">2.2.1</span> Download R &amp; RStudio</h3>
+<section id="download-r-rstudio" class="level3" data-number="1.2.1"><h3 data-number="1.2.1" class="anchored" data-anchor-id="download-r-rstudio">
+<span class="header-section-number">1.2.1</span> Download R &amp; RStudio</h3>
 <p>To get started, take the following two steps <em>in the given order</em>. Even if you already have R/RStudio, make sure to update to the most recent versions.</p>
 <ol type="1">
 <li>Download and install the R statistical software at <a href="https://mirror.las.iastate.edu/CRAN/" class="uri">https://mirror.las.iastate.edu/CRAN/</a><br>
@@ -240,28 +278,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Mac: Check to see if you have an Intel or Apple Silicon Processor Chip (Apple logo &gt; About this Mac). This will impact the version you download.</li>
 </ul>
 <ol start="2" type="1">
-<li>Download and install the FREE version of RStudio at <a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a></li>
+<li>Download and install the FREE version of RStudio at <a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a>
+</li>
 </ol>
 <ul>
 <li>Mac: Once you download the dmg file and click on it, drag the RStudio icon to applications and then open Finder and click the eject icon next to the RStudio temporary drive under Locations.</li>
 </ul>
 <p>If you are having issues with downloading, log on to <a href="https://rstudio.macalester.edu/" class="uri">https://rstudio.macalester.edu/</a> (use Mac credentials) to use the RStudio server.</p>
 <p>What’s the difference between R and RStudio? Mainly, RStudio requires R – thus it does everything R does <em>and more</em>. We will be using RStudio exclusively.</p>
-</section>
-<section id="a-quick-tour-of-rstudio" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="a-quick-tour-of-rstudio"><span class="header-section-number">2.2.2</span> A quick tour of RStudio</h3>
+</section><section id="a-quick-tour-of-rstudio" class="level3" data-number="1.2.2"><h3 data-number="1.2.2" class="anchored" data-anchor-id="a-quick-tour-of-rstudio">
+<span class="header-section-number">1.2.2</span> A quick tour of RStudio</h3>
 <p>Open RStudio! You should see four panes, each serving a different purpose:</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-main" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-main-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-main-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/rstudio-panes-labeled.jpeg" class="img-fluid figure-img" width="2481">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-main-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.1: RStudio Interface
-</figcaption>
-</figure>
+Figure&nbsp;1.1: RStudio Interface
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -275,23 +311,23 @@ Figure&nbsp;2.1: RStudio Interface
   5) Create a new vector by concatenating three repetitions of the vector from the previous part. (Type `?c` in the console and press Return.)</code></pre>
 <p>Solution</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">90</span><span class="sc">/</span><span class="dv">3</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 30</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">25</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 5</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">5</span>, <span class="at">times =</span> <span class="dv">8</span>)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 5 5 5 5 5 5 5 5</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">12</span>, <span class="at">by =</span> <span class="dv">3</span>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [1]  0  3  6  9 12</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">12</span>, <span class="at">by =</span> <span class="dv">3</span>), <span class="at">times =</span>  <span class="dv">3</span>)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="do">##  [1]  0  3  6  9 12  0  3  6  9 12  0  3  6  9 12</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">12</span>, <span class="at">by =</span> <span class="dv">3</span>), <span class="at">each =</span> <span class="dv">3</span>) <span class="co">#notice the difference between the named input of times and each</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="do">##  [1]  0  0  0  3  3  3  6  6  6  9  9  9 12 12 12</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">90</span><span class="op">/</span><span class="fl">3</span> </span>
+<span><span class="co">## [1] 30</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">25</span><span class="op">)</span></span>
+<span><span class="co">## [1] 5</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">5</span>, times <span class="op">=</span> <span class="fl">8</span><span class="op">)</span></span>
+<span><span class="co">## [1] 5 5 5 5 5 5 5 5</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">12</span>, by <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="co">## [1]  0  3  6  9 12</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">12</span>, by <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>, times <span class="op">=</span>  <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="co">##  [1]  0  3  6  9 12  0  3  6  9 12  0  3  6  9 12</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">12</span>, by <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>, each <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="co">#notice the difference between the named input of times and each</span></span>
+<span><span class="co">##  [1]  0  0  0  3  3  3  6  6  6  9  9  9 12 12 12</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>```{name=“Assigning Values to Variables”, label=“assignment”} We often want to store our output for later use (why?). The basic idea in R:</p>
 <pre><code>`name &lt;- output`</code></pre>
@@ -316,17 +352,14 @@ square_3
 #do some math with square_3
 square_3 + 2</code></pre>
 <p>:::</p>
-</section>
-<section id="data" class="level3" data-number="2.2.3">
-<h3 data-number="2.2.3" class="anchored" data-anchor-id="data"><span class="header-section-number">2.2.3</span> Data</h3>
+</section><section id="data" class="level3" data-number="1.2.3"><h3 data-number="1.2.3" class="anchored" data-anchor-id="data">
+<span class="header-section-number">1.2.3</span> Data</h3>
 <p>Not only does “Data Science” require statistical software, it requires <em>DATA</em>! Consider the Google definition:</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../images/datum.png" class="img-fluid figure-img" width="458"></p>
-<figcaption>A datum.</figcaption>
-</figure>
+<figure class="figure"><p><img src="../images/datum.png" class="img-fluid figure-img" width="458"></p>
+<figcaption>A datum.</figcaption></figure>
 </div>
 </div>
 </div>
@@ -363,9 +396,8 @@ square_3 + 2</code></pre>
 </div>
 </div>
 <p>This isn’t as restrictive as it seems. We can convert the above signals: photos, videos, and text to a data table format!</p>
-</section>
-<section id="tidy-data" class="level3" data-number="2.2.4">
-<h3 data-number="2.2.4" class="anchored" data-anchor-id="tidy-data"><span class="header-section-number">2.2.4</span> Tidy Data</h3>
+</section><section id="tidy-data" class="level3" data-number="1.2.4"><h3 data-number="1.2.4" class="anchored" data-anchor-id="tidy-data">
+<span class="header-section-number">1.2.4</span> Tidy Data</h3>
 <p><strong>Example:</strong> After a scandal among FIFA officials, fivethirtyeight.com posted an analysis of FIFA viewership, <a href="https://fivethirtyeight.com/features/how-to-break-fifa/">“How to Break FIFA”</a>. Here’s a snapshot of the data used in this article:</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -377,15 +409,13 @@ square_3 + 2</code></pre>
 <col style="width: 21%">
 <col style="width: 22%">
 </colgroup>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th style="text-align: left;">country</th>
 <th style="text-align: left;">confederation</th>
 <th style="text-align: right;">population_share</th>
 <th style="text-align: right;">tv_audience_share</th>
 <th style="text-align: right;">gdp_weighted_share</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">United States</td>
@@ -469,19 +499,19 @@ square_3 + 2</code></pre>
 </li>
 </ol>
 <ul>
-<li><strong>quantitative</strong> = numerical/numbers with units<br>
+<li>
+<strong>quantitative</strong> = numerical/numbers with units<br>
 </li>
-<li><strong>categorical</strong> = discrete possibilities/categories<br>
+<li>
+<strong>categorical</strong> = discrete possibilities/categories<br>
 </li>
 </ul>
 <ol start="3" type="1">
 <li>Each entry contains a single data value; no analysis, summaries, footnotes, comments, etc., and only one value per cell</li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/main/rstats-artwork/tidydata_1.jpg" class="img-fluid figure-img"></p>
-<figcaption>Tidy Data: Art by Allison Horst</figcaption>
-</figure>
+<figure class="figure"><p><img src="../images/tidydata_1.jpg" class="img-fluid figure-img"></p>
+<figcaption>Tidy Data: Art by Allison Horst</figcaption></figure>
 </div>
 <pre name="Units of Observation and Variables"><code>Consider the following in a group:   </code></pre>
 <ol type="a">
@@ -497,8 +527,7 @@ square_3 + 2</code></pre>
 <li>country name, soccer or football confederation, country’s share of global population (percentage), country’s share of global world cup TV Audience (percentage), country’s GDP-weighted audience share (percentage)</li>
 <li>Yes</li>
 </ol>
-<p><br>
-</p>
+<p><br></p>
 <pre name="Tidy vs. Untidy"><code>Check out the following data.  Explain to each other why they are untidy and how we can tidy them.    
   
   a. Data 1: FIFA    
@@ -522,71 +551,69 @@ square_3 + 2</code></pre>
 <ol type="a">
 <li>There are notes such as “I don’t know” and “look up later” in columns with numeric values; the last row with the total is a summary. We could remove the text notes, replace it with the value if known, and remove the last row with the total summary.</li>
 <li>The first column does not have a row name. It should be continent. Additionally, Bahrain needs a value for the continent.The column names ‘1952’, ‘1957’ and ‘1962’ are values not variables. The table should be ‘pivoted’ (more information on this coming soon!), so that there is an additional column named ‘year’ and each country has three observations (rows) associated with it (one for each year).</li>
-</ol>
-</section>
-<section id="data-basics-in-rstudio" class="level3" data-number="2.2.5">
-<h3 data-number="2.2.5" class="anchored" data-anchor-id="data-basics-in-rstudio"><span class="header-section-number">2.2.5</span> Data Basics in RStudio</h3>
+</ol></section><section id="data-basics-in-rstudio" class="level3" data-number="1.2.5"><h3 data-number="1.2.5" class="anchored" data-anchor-id="data-basics-in-rstudio">
+<span class="header-section-number">1.2.5</span> Data Basics in RStudio</h3>
 <p>For now, we’ll focus on <em>tidy</em> data. In a couple of weeks, you’ll learn how to “clean data” and turn untidy data into tidy data.</p>
 <pre name="Importing Package Data"><code>The first step to working with data in RStudio is getting it in there!  How we do this depends on its format (eg: Excel spreadsheet, csv file, txt file) and storage locations (eg: online, within Wiki, desktop).  
 
 Luckily for us, the `fifa_audience` data are stored in the `fivethirtyeight` RStudio package. Copy and paste the following code into the Console and press Enter.</code></pre>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#download the data and information in the fivethirtyeight package (we only need to do this once)</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'fivethirtyeight'</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#load the fivethirtyeight package</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fivethirtyeight)</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#load the fifa data</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"fifa_audience"</span>)</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#store this under a shorter, easier name</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>fifa <span class="ot">&lt;-</span> fifa_audience</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#download the data and information in the fivethirtyeight package (we only need to do this once)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">'fivethirtyeight'</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#load the fivethirtyeight package</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rudeboybert/fivethirtyeight">fivethirtyeight</a></span><span class="op">)</span></span>
+<span>    </span>
+<span><span class="co">#load the fifa data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"fifa_audience"</span><span class="op">)</span></span>
+<span>    </span>
+<span><span class="co">#store this under a shorter, easier name</span></span>
+<span><span class="va">fifa</span> <span class="op">&lt;-</span> <span class="va">fifa_audience</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <pre name="Examining Data Structures"><code>Before we can analyze our data, we must understand its structure.  Try out the following functions (copy and paste into the Console).  For each, make a note that describes its action.  </code></pre>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#(what does View do?)</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(fifa)  </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#(what does head do?)</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fifa)  </span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#(what does dim do?)</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(fifa)           </span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">#(what does names do?)</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(fifa)         </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#(what does View do?)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/View.html">View</a></span><span class="op">(</span><span class="va">fifa</span><span class="op">)</span>  </span>
+<span></span>
+<span><span class="co">#(what does head do?)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">fifa</span><span class="op">)</span>  </span>
+<span></span>
+<span><span class="co">#(what does dim do?)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">fifa</span><span class="op">)</span>           </span>
+<span></span>
+<span><span class="co">#(what does names do?)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">fifa</span><span class="op">)</span>         </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Solution</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#View() opens up a new tab with a spreadsheet preview of the data to visually explore the data. It is commented out in the Rmarkdown/Quarto file because this is an interactive feature</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#View(fifa)  </span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#head() gives the first 6 (default number) rows of a data set</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fifa)  </span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 6 × 5</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="do">##   country    confederation population_share tv_audience_share gdp_weighted_share</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;chr&gt;      &lt;chr&gt;                    &lt;dbl&gt;             &lt;dbl&gt;              &lt;dbl&gt;</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 United St… CONCACAF                   4.5               4.3               11.3</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 Japan      AFC                        1.9               4.9                9.1</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 China      AFC                       19.5              14.8                7.3</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 Germany    UEFA                       1.2               2.9                6.3</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 Brazil     CONMEBOL                   2.8               7.1                5.4</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="do">## 6 United Ki… UEFA                       0.9               2.1                4.2</span></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co">#dim() gives the number of rows and number of columns</span></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(fifa)           </span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 191   5</span></span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="co">#names() gives the names of the columns/variables</span></span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(fifa)   </span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "country"            "confederation"      "population_share"  </span></span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="do">## [4] "tv_audience_share"  "gdp_weighted_share"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#View() opens up a new tab with a spreadsheet preview of the data to visually explore the data. It is commented out in the Rmarkdown/Quarto file because this is an interactive feature</span></span>
+<span><span class="co">#View(fifa)  </span></span>
+<span></span>
+<span><span class="co">#head() gives the first 6 (default number) rows of a data set</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">fifa</span><span class="op">)</span>  </span>
+<span><span class="co">## # A tibble: 6 × 5</span></span>
+<span><span class="co">##   country    confederation population_share tv_audience_share gdp_weighted_share</span></span>
+<span><span class="co">##   &lt;chr&gt;      &lt;chr&gt;                    &lt;dbl&gt;             &lt;dbl&gt;              &lt;dbl&gt;</span></span>
+<span><span class="co">## 1 United St… CONCACAF                   4.5               4.3               11.3</span></span>
+<span><span class="co">## 2 Japan      AFC                        1.9               4.9                9.1</span></span>
+<span><span class="co">## 3 China      AFC                       19.5              14.8                7.3</span></span>
+<span><span class="co">## 4 Germany    UEFA                       1.2               2.9                6.3</span></span>
+<span><span class="co">## 5 Brazil     CONMEBOL                   2.8               7.1                5.4</span></span>
+<span><span class="co">## 6 United Ki… UEFA                       0.9               2.1                4.2</span></span>
+<span></span>
+<span><span class="co">#dim() gives the number of rows and number of columns</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">fifa</span><span class="op">)</span>           </span>
+<span><span class="co">## [1] 191   5</span></span>
+<span></span>
+<span><span class="co">#names() gives the names of the columns/variables</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">fifa</span><span class="op">)</span>   </span>
+<span><span class="co">## [1] "country"            "confederation"      "population_share"  </span></span>
+<span><span class="co">## [4] "tv_audience_share"  "gdp_weighted_share"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <pre name="Codebooks"><code>Data are also only useful if we know what they measure!  The `fifa` data table is *tidy*; it doesn't have any helpful notes in the data itself.</code></pre>
 <p>Rather, information about the data is stored in a separate <em>codebook</em>. Codebooks can be stored in many ways (eg: Google docs, word docs, etc). Here the authors have made their codebook available in RStudio (under the original <code>fifa_audience</code> name). Check it out (run the following code in the console):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>?fifa_audience</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">?</span><span class="va">fifa_audience</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol type="a">
 <li>What does <code>population_share</code> measure?</li>
@@ -602,8 +629,8 @@ Luckily for us, the `fifa_audience` data are stored in the `fivethirtyeight` RSt
 <li>We might want to access and focus on a single variable. To this end, we can use the <code>$</code> notation (see below). What are the values of <code>tv_audience_share</code>? Of <code>confederation</code>? Is it easy to figure out?</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>fifa<span class="sc">$</span>tv_audience_share</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>fifa<span class="sc">$</span>confederation</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fifa</span><span class="op">$</span><span class="va">tv_audience_share</span></span>
+<span><span class="va">fifa</span><span class="op">$</span><span class="va">confederation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Solution</p>
 <ol type="a">
@@ -611,30 +638,28 @@ Luckily for us, the `fifa_audience` data are stored in the `fivethirtyeight` RSt
 </ol>
 <p>It’s important to understand the format/class of each variable (quantitative, categorical, date, etc) in both its meaning and its structure within RStudio:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(fifa<span class="sc">$</span>tv_audience_share)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(fifa<span class="sc">$</span>confederation)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">fifa</span><span class="op">$</span><span class="va">tv_audience_share</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">fifa</span><span class="op">$</span><span class="va">confederation</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="a">
 <li>If a variable is categorical (in <code>factor</code> format), we can determine its <code>levels</code> / category labels. What are the value of <code>confederation</code>?</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(fifa<span class="sc">$</span>confederation) <span class="co">#it is in character format</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(<span class="fu">factor</span>(fifa<span class="sc">$</span>confederation)) <span class="co">#we can convert to factor format</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">fifa</span><span class="op">$</span><span class="va">confederation</span><span class="op">)</span> <span class="co">#it is in character format</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">fifa</span><span class="op">$</span><span class="va">confederation</span><span class="op">)</span><span class="op">)</span> <span class="co">#we can convert to factor format</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Solution</p>
 <ol start="2" type="a">
 <li>The values of <code>confederation</code> are words, also known as strings of characters in computing languages (indicated by the quotes around them): “AFC”, “CAF”, “CONCACAF”, “CONMEBOL”, “OFC”, “UEFA”.</li>
-</ol>
-</section>
-</section>
-<section id="r-markdownquarto-and-reproducible-research" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="r-markdownquarto-and-reproducible-research">R Markdown/Quarto and Reproducible Research</h2>
+</ol></section></section><section id="r-markdownquarto-and-reproducible-research" class="level2" data-number="1.3"><h2 data-number="1.3" class="anchored" data-anchor-id="r-markdownquarto-and-reproducible-research">
+<span class="header-section-number">1.3</span> R Markdown/Quarto and Reproducible Research</h2>
 <blockquote class="blockquote">
 <p><strong>Reproducible research</strong> is the idea that data analyses, and more generally, scientific claims, are published with their data and software code so that others may verify the findings and build upon them. - <a href="https://www.coursera.org/learn/reproducible-research">Reproducible Research, Coursera</a></p>
 </blockquote>
 <p>Useful Resources:</p>
 <ol type="1">
-<li><a href="http://rmarkdown.rstudio.com/authoring_quick_tour.html">R Markdown Quick Tour</a><br>
+<li>
+<a href="http://rmarkdown.rstudio.com/authoring_quick_tour.html">R Markdown Quick Tour</a><br>
 </li>
 <li><a href="https://github.com/rstudio/cheatsheets/raw/main/rmarkdown-2.0.pdf">R Markdown Cheatsheet</a></li>
 <li><a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">R Markdown Reference Guide</a></li>
@@ -657,9 +682,8 @@ R code chunks are between 3 tick marks at the beginning and end; it is R code if
   
 If echo=FALSE in curly braces, the code is not shown. Otherwise, both code and output are shown by default.</code></pre>
 <p>Now take a look at the <a href="https://github.com/rstudio/cheatsheets/raw/main/rmarkdown-2.0.pdf">R Markdown cheatsheet</a>. Look up the R Markdown features from the previous question on the cheatsheet. There’s a great deal more information there.</p>
-</section>
-<section id="practice" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="practice">Practice</h2>
+</section><section id="practice" class="level2" data-number="1.4"><h2 data-number="1.4" class="anchored" data-anchor-id="practice">
+<span class="header-section-number">1.4</span> Practice</h2>
 <p>Complete the following. If you get stuck along the way, refer to the R Markdown cheatsheet linked above, search the web for answers, and/or ask for help!</p>
 <pre name="Your First R Markdown File"><code>Create a new R Markdown (or a Quarto document) about your favorite food.    
 
@@ -689,20 +713,16 @@ f. Compile (Knit/Render) the document into an html file [which appears in the fo
 </li>
 <li>List all of the unique entries in the <code>gsm</code> variable (no need to include NA).</li>
 <li>Compile the document into an html file.</li>
-</ol>
-</section>
-<section id="appendix-r-functions" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="appendix-r-functions"><span class="header-section-number">2.3</span> Appendix: R Functions</h2>
-<section id="r-as-a-calculator" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="r-as-a-calculator"><span class="header-section-number">2.3.1</span> R as a calculator</h3>
+</ol></section><section id="appendix-r-functions" class="level2" data-number="1.5"><h2 data-number="1.5" class="anchored" data-anchor-id="appendix-r-functions">
+<span class="header-section-number">1.5</span> Appendix: R Functions</h2>
+<section id="r-as-a-calculator" class="level3" data-number="1.5.1"><h3 data-number="1.5.1" class="anchored" data-anchor-id="r-as-a-calculator">
+<span class="header-section-number">1.5.1</span> R as a calculator</h3>
 <table class="caption-top table">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th>Function/Operator</th>
 <th style="text-align: center;">Action</th>
 <th style="text-align: right;">Example</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td><code>/</code></td>
@@ -735,23 +755,19 @@ f. Compile (Knit/Render) the document into an html file [which appears in the fo
 <td style="text-align: right;"><code>sqrt(25)</code></td>
 </tr>
 </tbody>
-</table>
-</section>
-<section id="r-basics" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="r-basics"><span class="header-section-number">2.3.2</span> R Basics</h3>
+</table></section><section id="r-basics" class="level3" data-number="1.5.2"><h3 data-number="1.5.2" class="anchored" data-anchor-id="r-basics">
+<span class="header-section-number">1.5.2</span> R Basics</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 24%">
 <col style="width: 46%">
 <col style="width: 28%">
 </colgroup>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th>Function/Operator</th>
 <th style="text-align: center;">Action</th>
 <th style="text-align: right;">Example</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td><code>install.packages('packagename')</code></td>
@@ -759,14 +775,14 @@ f. Compile (Knit/Render) the document into an html file [which appears in the fo
 <td style="text-align: right;"><code>install.packages('fivethirtyeight')</code></td>
 </tr>
 <tr class="even">
-<td><code>library(packagename)</code></td>
+<td><code><a href="https://rdrr.io/r/base/library.html">library(packagename)</a></code></td>
 <td style="text-align: center;">Access a downloaded R package</td>
-<td style="text-align: right;"><code>library(fivethirtyeight)</code></td>
+<td style="text-align: right;"><code><a href="https://github.com/rudeboybert/fivethirtyeight">library(fivethirtyeight)</a></code></td>
 </tr>
 <tr class="odd">
 <td><code>?function_object_name</code></td>
 <td style="text-align: center;">Opens the help/documentation for the function or object</td>
-<td style="text-align: right;"><code>?seq</code></td>
+<td style="text-align: right;"><code><a href="https://rdrr.io/r/base/seq.html">?seq</a></code></td>
 </tr>
 <tr class="even">
 <td><code>rep(x, times, each)</code></td>
@@ -827,11 +843,7 @@ f. Compile (Knit/Render) the document into an html file [which appears in the fo
 </table>
 
 
-</section>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1239,18 +1251,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link" aria-label="index.html">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">index.html</span></span>
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="../index.html" class="pagination-link" aria-label="Welcome">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Welcome</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../src/02-Intro_Data_Viz.html" class="pagination-link" aria-label="Intro to Data Visualization">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Intro to Data Visualization</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
-
 
 
 

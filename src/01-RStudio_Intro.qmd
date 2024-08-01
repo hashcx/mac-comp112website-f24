@@ -1,5 +1,5 @@
 ---
-title: "P1: Intro to R, RStudio, and R Markdown"
+title: "Intro to R, RStudio, and R Markdown"
 eval: TRUE
 ---
 
@@ -10,12 +10,20 @@ eval: TRUE
 rm(list = ls())
 ```
 
-```{r 01_setup}
+```{r List of Used Packages}
 #| include: false
 #| echo: true
 #| error: true
 
-packages = c("tidyverse", "ggplot2", "ggmap", "tint")
+# list all the package names
+packages = c("tidyverse", "ggplot2", "ggmap", "tint", "here")
+```
+
+```{r Load Packages}
+#| include: false
+#| echo: true
+#| error: true
+
 install.packages(setdiff(packages, rownames(installed.packages())))
 lapply(packages, require, character.only = TRUE)
 ```
@@ -59,7 +67,7 @@ What's the difference between R and RStudio? Mainly, RStudio requires R -- thus 
 Open RStudio! You should see four panes, each serving a different purpose:
 
 ```{r fig-main,echo=FALSE,fig.cap="RStudio Interface"}
-knitr::include_graphics("../images/rstudio-panes-labeled.jpeg")
+knitr::include_graphics(here("images", "rstudio-panes-labeled.jpeg"))
 ```
 
 This short [video tour of RStudio](http://www.youtube.com/embed/JfIo2Ua_oqQ/) summarizes some basic features of the *console*.
@@ -171,7 +179,7 @@ The data table above is in *tidy* format. *Tidy* data tables have three key feat
 
 3.  Each entry contains a single data value; no analysis, summaries, footnotes, comments, etc., and only one value per cell
 
-![Tidy Data: Art by Allison Horst](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/main/rstats-artwork/tidydata_1.jpg)
+![Tidy Data: Art by Allison Horst](../images/tidydata_1.jpg)
 
 ```{name="Units of Observation and Variables"}
 Consider the following in a group:   
@@ -325,7 +333,7 @@ Solution
 
 b.  The values of `confederation` are words, also known as strings of characters in computing languages (indicated by the quotes around them): "AFC", "CAF", "CONCACAF", "CONMEBOL", "OFC", "UEFA".
 
-## R Markdown/Quarto and Reproducible Research {.unnumbered}
+## R Markdown/Quarto and Reproducible Research
 
 > **Reproducible research** is the idea that data analyses, and more generally, scientific claims, are published with their data and software code so that others may verify the findings and build upon them. - [Reproducible Research, Coursera](https://www.coursera.org/learn/reproducible-research)
 
@@ -365,7 +373,7 @@ If echo=FALSE in curly braces, the code is not shown. Otherwise, both code and o
 
 Now take a look at the [R Markdown cheatsheet](https://github.com/rstudio/cheatsheets/raw/main/rmarkdown-2.0.pdf). Look up the R Markdown features from the previous question on the cheatsheet. There's a great deal more information there.
 
-## Practice {.unnumbered}
+## Practice
 
 Complete the following. If you get stuck along the way, refer to the R Markdown cheatsheet linked above, search the web for answers, and/or ask for help!
 

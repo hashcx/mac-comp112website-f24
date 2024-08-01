@@ -3,6 +3,7 @@ knitr::opts_chunk$set(echo = TRUE, error = TRUE, tidy = FALSE, message = FALSE, 
 library(tidyverse)
 library(ggplot2)
 library(gplots)
+library(here)
 ```
 
 # Multivariate Visualizations
@@ -21,7 +22,7 @@ You can download a template .Rmd of this activity [here](template_rmd/05-Multiva
 Though far from a perfect assessment of academic preparedness, SAT scores have historically been used as one measurement of a state's education system.  The `education` [data](data/sat.csv) contain various education variables for each state:
 
 ```{r eval=TRUE, echo=FALSE}
-education <- read.csv("data/sat.csv")
+education <- read.csv(here("data", "sat.csv"))
 ```
 
 ```{r eval=FALSE, echo=TRUE}

@@ -1,7 +1,5 @@
 project:
   type: book
-  resources:
-    - src/
   output-dir: docs
 
 book:
@@ -11,17 +9,58 @@ book:
   #     - href: index.qmd
   #       text: Home
   #     - about.qmd
+  reader-mode: true
   downloads: [pdf]
   chapters:
-    - index.qmd
-    - src/01-RStudio_Intro.qmd
+    - text: "Welcome"
+      href: index.qmd
+    
+    - part: "Foundation"
+      chapters: 
+        - src/01-RStudio_Intro.qmd
+    
+    - part: "Visualization"
+      chapters: 
+        - src/02-Intro_Data_Viz.qmd
+        - src/03-Effective_Viz.qmd
+        - src/04-Bivariate_Viz.qmd
+        - src/05-Multivariate_Viz.qmd
+        - src/06-Spatial_Viz.qmd
+    
+    # - part: Data Wrangling
+    #   chapters: 
+    #     - src/07-Six_Main_Verbs.qmd
+    #     - src/08-Reshaping_Data.qmd
+    #     - src/09-Join.qmd
+    #     - src/10-Factors.qmd
+    #     - src/11-Mini_Project.qmd
+    # 
+    # - part: Data Acquisition & Cleaning
+    #   chapters: 
+    #     - src/12-Data_Import.qmd
+    #     - src/13-EDA.qmd
+    #     - src/14-Regex.qmd
+    # 
+    # - part: Additional Topics
+    #   chapters: 
+    #     - src/15-Data_Scraping.qmd
+    #     - src/16-API.qmd
+    #     - src/17-SQL.qmd
+    #     - src/19-Adv_Viz.qmd
+    #     - src/20-Shiny.qmd
+    #     - src/21-Prez_Tools.qmd
 
 format:
   html:
     code-copy: true
     theme: cosmo
     css: styles/styles.css
+    code-link: true
     toc: true
+  
+  pdf:
+    documentclass: scrreprt
+    keep-tex: true
 
 execute:
   cache: true

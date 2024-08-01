@@ -1,3 +1,7 @@
+---
+title: Intro to Data Visualization
+---
+
 ```{r 02_setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, error = TRUE)
 library(tufte)
@@ -7,10 +11,6 @@ library(ggmap)
 library(tint)
 library(mosaic)
 ```
-
-# (PART) Visualization {.unnumbered}
-
-# Intro to Data Visualization
 
 ## Learning Goals {.unnumbered}
 
@@ -39,19 +39,19 @@ In its original sense, in archaeology, a glyph is a carved symbol.
 
 | Heiro**glyph**                 |                        Mayan **glyph** |
 |--------------------------------|---------------------------------------:|
-| ![Heiroglyph](images/hand.jpg) | ![Mayan glyph](images/mayan-glyph.png) |
+| ![Heiroglyph](../images/hand.jpg) | ![Mayan glyph](../images/mayan-glyph.png) |
 
 ### Data Glyph {.unnumbered}
 
 A data glyph is also a mark, e.g.
 
-![](images/geom_rect.png) ![](images/geom_segment.png) ![](images/geom_text.png) ![](images/geom_crossbar.png) ![](images/geom_path.png) ![](images/geom_line.png) ![](images/geom_pointrange.png) ![](images/geom_ribbon.png) ![](images/geom_point.png) ![](images/geom_polygon.png) ![](images/geom_histogram.png) ![](images/geom_dotplot.png) ![](images/geom_freqpoly.png) ![](images/geom_density.png) ![](images/geom_violin.png)
+![](../images/geom_rect.png) ![](../images/geom_segment.png) ![](../images/geom_text.png) ![](../images/geom_crossbar.png) ![](../images/geom_path.png) ![](../images/geom_line.png) ![](../images/geom_pointrange.png) ![](../images/geom_ribbon.png) ![](../images/geom_point.png) ![](../images/geom_polygon.png) ![](../images/geom_histogram.png) ![](../images/geom_dotplot.png) ![](../images/geom_freqpoly.png) ![](../images/geom_density.png) ![](../images/geom_violin.png)
 
 The features of a data glyph encodes the value of variables.
 
--   Some are very simple, e.g. a dot: ![](images/geom_point.png)
--   Some combine different elements, e.g. a pointrange: ![](images/geom_pointrange.png)
--   Some are complicated, e.g. a dotplot: ![](images/geom_dotplot.png)
+-   Some are very simple, e.g. a dot: ![](../images/geom_point.png)
+-   Some combine different elements, e.g. a pointrange: ![](../images/geom_pointrange.png)
+-   Some are complicated, e.g. a dotplot: ![](../images/geom_dotplot.png)
 
 ### Components of Graphics {.unnumbered}
 

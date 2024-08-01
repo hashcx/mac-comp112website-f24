@@ -1,11 +1,15 @@
+---
+title: Public Web APIs
+prefer-html: true
+---
+
 ```{r 16_setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, error = TRUE, tidy = FALSE, message = FALSE, cache.extra = packageVersion("tufte"))
 library(tidyverse)
 library(lubridate)
 library(urltools)
+library(knitr)
 ```
-
-# Public Web APIs  {-}
 
 ## Learning Goals {-}
 

@@ -1,3 +1,7 @@
+---
+title: Bivariate Visualizations
+---
+
 ```{r 04_setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, error = TRUE)
 library(tufte)
@@ -9,10 +13,8 @@ library(fivethirtyeight)
 library(babynames)
 library(readr)
 knitr::opts_chunk$set(tidy = FALSE, message = FALSE, cache.extra = packageVersion("tufte"))
-# options(htmltools.dir.version = FALSE)
+library(here)
 ```
-
-# Bivariate Visualizations
 
 ## Learning Goals {-}
 

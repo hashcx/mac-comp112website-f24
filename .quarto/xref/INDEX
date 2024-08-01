@@ -58,5 +58,11 @@
   },
   "index.qmd": {
     "index.html": "5c871f84"
+  },
+  "src/06-Spatial_Viz.qmd": {
+    "06-Spatial_Viz.html": "17c4c015"
+  },
+  "src/20-Shiny.qmd": {
+    "20-Shiny.html": "e187c62b"
   }
 }
